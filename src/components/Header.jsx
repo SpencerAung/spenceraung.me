@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
+import { string } from 'prop-types';
 
 const Header = ({ siteTitle }) => (
   <div
@@ -28,6 +29,14 @@ const Header = ({ siteTitle }) => (
       </h1>
     </div>
   </div>
-)
+);
 
-export default Header
+Header.propTypes = {
+  siteTitle: string,
+};
+
+Header.defaultProps = {
+  siteTitle: '',
+};
+
+export default Header;
