@@ -1,17 +1,16 @@
 {
   "name": "spenceraung.me",
   "description": "Spencer's Blog",
-  "version": "1.0.0",
   "engines": {
-    "node": ">=8.4.0"
+    "node": ">=9.10.0"
   },
+  "version": "1.0.0",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-gatsby": "^0.1.4",
     "gatsby": "^2.0.54",
     "gatsby-image": "^2.0.15",
     "gatsby-plugin-manifest": "^2.0.5",
-    "gatsby-plugin-netlify-cms": "^3.0.7",
     "gatsby-plugin-offline": "^2.0.11",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.13",
@@ -21,7 +20,6 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.4",
-    "netlify-cms": "^2.2.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
