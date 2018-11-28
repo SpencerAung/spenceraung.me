@@ -1,8 +1,10 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "spenceraung.me",
+  "description": "Spencer's Blog",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "engines": {
+    "node": ">=8.4.0"
+  },
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "babel-preset-gatsby": "^0.1.4",
