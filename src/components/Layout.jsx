@@ -4,12 +4,14 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
 
-import Sidebar from './Sidebar';
+import SideMenu from './SideMenu';
 import Footer from './Footer';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
 
 const PageWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   margin: 0 auto;
   max-width: 1440px;
   min-height: 100vh;
@@ -18,18 +20,25 @@ const PageWrapper = styled.div`
   background-color: ${(props) => props.theme.yellow};
 `;
 
-const Flex = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+const SideMenuWrapper = styled.div`
+  grid-column: 1/2;
+  grid-row: 1;
+  min-width: 250px;
+  max-width: 250px;
 `;
 
 const ContentWrapper = styled.section`
   flex: 1;
+  grid-column: 2/7;
+  grid-row: 1;
   min-height: 100vh;
   padding: 5rem;
   background-color: ${(props) => props.theme.offWhite};
+`;
+
+const FooterWrapper = styled.div`
+  grid-column: 1/7;
+  grid-row: 2;
 `;
 
 const Layout = ({ children }) => (
@@ -58,13 +67,15 @@ const Layout = ({ children }) => (
           <Fragment>
             <GlobalStyle />
             <PageWrapper>
-              <Flex>
-                <Sidebar />
-                <ContentWrapper>
-                  <div>{children}</div>
-                </ContentWrapper>
-              </Flex>
-              <Footer />
+              <SideMenuWrapper>
+                <SideMenu />
+              </SideMenuWrapper>
+              <ContentWrapper>
+                <div>{children}</div>
+              </ContentWrapper>
+              <FooterWrapper>
+                <Footer />
+              </FooterWrapper>
             </PageWrapper>
           </Fragment>
         </ThemeProvider>

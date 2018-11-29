@@ -5,8 +5,6 @@ import { Link } from 'gatsby';
 import Image from './Image';
 
 const StyledSection = styled.menu`
-  width: 250px;
-  height: 100%;
   padding: 0;
   text-align: center;
   background-color: ${({ theme }) => theme.yellow};
@@ -35,12 +33,14 @@ const MenuLink = styled.div`
     font-weight: 500;
   }
 
-  a:hover {
+  a:hover,
+  a.active {
     color: ${({ theme }) => theme.black};
     font-weight: 700;
   }
 
-  a:hover::after {
+  a:hover::after,
+  a.active::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -51,18 +51,22 @@ const MenuLink = styled.div`
   }
 `;
 
-const Sidebar = () => (
+const SideMenu = () => (
   <StyledSection>
     <ImageWrapper>
       <Image />
     </ImageWrapper>
     <MenuLink>
-      <Link to="/">Blog</Link>
+      <Link to="/" activeClassName="active">
+        Blog
+      </Link>
     </MenuLink>
     <MenuLink>
-      <Link to="/about">About</Link>
+      <Link to="/about" activeClassName="active">
+        About
+      </Link>
     </MenuLink>
   </StyledSection>
 );
 
-export default Sidebar;
+export default SideMenu;
