@@ -1,18 +1,29 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { shape } from 'prop-types';
+import styled from 'styled-components';
 
 import Layout from '../components/Layout';
+
+const StyledPost = styled.article`
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+
+  p {
+    font-size: 2rem;
+  }
+`;
 
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <div>
+      <StyledPost>
         <h1>{post.frontmatter.title}</h1>
         {/* eslint-disable-next-line */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </StyledPost>
     </Layout>
   );
 };

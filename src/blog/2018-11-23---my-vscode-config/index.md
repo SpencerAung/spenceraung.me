@@ -1,6 +1,6 @@
 ---
 path: "/blog"
-date: "2018-11-22"
+date: "2018-11-23"
 title: "My VSCode Setup"
 ---
 
@@ -10,8 +10,7 @@ You can print a list of vscode extensions in the terminal by running the followi
 ```bash
 code --list-extensions
 ```
-
-
+<br>
 Here, I will show you what extensions I am using. 
 
 ```
@@ -26,8 +25,6 @@ dracula-theme.theme-dracula
 esbenp.prettier-vscode
 felipecaputo.git-project-manager
 formulahendry.auto-close-tag
-formulahendry.terminal
-gogocrow.jsx-beautify
 humao.rest-client
 iampeterbanjo.elixirlinter
 jpoissonnier.vscode-styled-components
@@ -49,5 +46,4 @@ wesbos.theme-cobalt2
 wix.vscode-import-cost
 xabikos.ReactSnippets
 zhuangtongfa.Material-theme
-
 ```
