@@ -37,7 +37,7 @@ const PostLink = ({ post }) => {
 
   return (
     <StyledPostLink>
-      <Link to={`${frontmatter.path}${fields.slug}`}>{frontmatter.title}</Link>
+      <Link to={`${frontmatter.path}/${fields.slug}`}>{frontmatter.title}</Link>
       <p>{excerpt}</p>
       <p>{`${frontmatter.date}. ${timeToRead} min`}</p>
     </StyledPostLink>

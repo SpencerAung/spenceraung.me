@@ -40,9 +40,9 @@ const Menu = () => (
     <MenuLink to="/" activeClassName="active">
       Blog
     </MenuLink>
-    <MenuLink to="/about" activeClassName="active">
+    {/* <MenuLink to="/about" activeClassName="active">
       About
-    </MenuLink>
+    </MenuLink> */}
   </StyledMenu>
 );
 

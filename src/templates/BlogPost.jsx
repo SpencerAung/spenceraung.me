@@ -10,8 +10,12 @@ const StyledPost = styled.article`
   max-width: 700px;
   margin: 0 auto;
 
-  p {
+  p,
+  li {
     font-size: 2rem;
+  }
+  pre {
+    margin-bottom: 1.38rem;
   }
 `;
 

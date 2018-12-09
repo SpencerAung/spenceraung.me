@@ -36,7 +36,10 @@ const GlobalStyle = createGlobalStyle`
   h4 {
     font-size: 1.8rem;
   }
-  p, div {
+  h2, h3, h4 {
+    margin: 3rem 0;
+  }
+  p, div, li {
     font-size: 1.8rem;
     line-height: 1.3;
   }

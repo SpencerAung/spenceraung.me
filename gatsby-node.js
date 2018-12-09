@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
         const { path: frontmatterPath } = node.frontmatter || {};
         const url =
           frontmatterPath === '/blog'
-            ? `/blog${node.fields.slug}`
+            ? `/blog/${node.fields.slug}`
             : frontmatterPath;
 
         if (url) {
@@ -45,7 +45,9 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: 'src/blog' });
+    const fileName = createFilePath({ node, getNode, basePath: 'src/blog' });
+    const [date, slug] = fileName.split('---');
+    console.log({ slug });
     createNodeField({
       node,
       name: `slug`,
