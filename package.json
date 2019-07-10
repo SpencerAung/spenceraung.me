@@ -38,7 +38,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf node_modules",
-    "reinstall": "npm run clean && npm install",
+    "reinstall": "npm run clean && yarn install",
     "build": "npm run reinstall && gatsby build",
     "dev": "gatsby develop",
     "start": "npm run develop",
