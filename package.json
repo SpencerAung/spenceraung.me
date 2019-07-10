@@ -8,7 +8,6 @@
   "dependencies": {
     "babel-preset-gatsby": "^0.2.1",
     "gatsby": "^2.13.12",
-    "gatsby-cli": "^2.7.8",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-manifest": "^2.2.1",
     "gatsby-plugin-offline": "^2.2.1",
@@ -38,7 +37,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf node_modules",
-    "reinstall": "npm run clean && yarn install",
+    "reinstall": "npm run clean && npm install",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "start": "npm run develop",
