@@ -4,26 +4,24 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider } from 'styled-components';
 
-import Menu from './Menu';
-import Footer from './Footer';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
 
 const PageWrapper = styled.div`
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 100%;
   min-height: 100vh;
   height: 100%;
   padding: 0;
-  background-color: ${(props) => props.theme.offWhite};
+  background-color: ${(props) => props.theme.lightBlue};
 `;
 
 const ContentWrapper = styled.section`
   margin: 0 auto;
   max-width: 700px;
-  min-height: 100vh;
+  min-height: 800px;
   padding: 5rem;
-  background-color: ${(props) => props.theme.offWhite};
+  background-color: ${(props) => props.theme.lightBlue};
 `;
 
 const Layout = ({ children }) => (
@@ -52,11 +50,9 @@ const Layout = ({ children }) => (
           <Fragment>
             <GlobalStyle />
             <PageWrapper>
-              <Menu />
               <ContentWrapper>
                 <div>{children}</div>
               </ContentWrapper>
-              <Footer />
             </PageWrapper>
           </Fragment>
         </ThemeProvider>

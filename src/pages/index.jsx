@@ -1,49 +1,45 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { shape } from 'prop-types';
-import PostLink from '../components/PostLink';
 import Layout from '../components/Layout';
 
-const IndexPage = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-  const Posts = edges
-    .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
-
-  return <Layout>{Posts}</Layout>;
-};
-
-IndexPage.propTypes = {
-  data: shape({}).isRequired,
-};
+const IndexPage = () => (
+  <Layout>
+    <h1>
+      Hello!{' '}
+      <span role="img" aria-label="waving hand">
+        👋
+      </span>
+    </h1>
+    <p>
+      My name is Spencer Aung. I am a JavaScript developer at{' '}
+      <a
+        href="https://www.korbit.co.kr"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        Korbit
+      </a>{' '}
+      since 2018.
+    </p>
+    <p>
+      I work from home and enjoy life with{' '}
+      <a
+        href="https://www.instagram.com/mr__garu/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        Mr. Garu
+      </a>
+      , my favorite cat in the whole world. When I am not making apps, I am
+      either on Netflix or reading a book.
+    </p>
+    <h3>2019 Missions</h3>
+    <ul>
+      <li>Improve Functional Programming skill</li>
+      <li>Walk at least 5 km a day</li>
+      <li>Make a product prototype</li>
+      <li>Learn Korean</li>
+    </ul>
+  </Layout>
+);
 
 export default IndexPage;
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            date(formatString: "MMM DD, YYYY")
-            path
-            title
-            cover {
-              name
-              publicURL
-            }
-          }
-          timeToRead
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;

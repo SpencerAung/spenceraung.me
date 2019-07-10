@@ -16,11 +16,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: 2;
   }
   a {
-    text-decoration: none;
-    color: ${theme.blue};
+    color: ${theme.red};
 
     &:hover {
-      color: ${theme.blue};
+      color: ${theme.red};
     }
   }
   h1 {
@@ -38,6 +37,9 @@ const GlobalStyle = createGlobalStyle`
   }
   h2, h3, h4 {
     margin: 3rem 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: ${theme.blue};
   }
   p, div, li {
     font-size: 1.8rem;

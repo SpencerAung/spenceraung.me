@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Spencer Aung | JavaScript Developer',
   },
   plugins: [
     'gatsby-plugin-eslint',
@@ -36,13 +36,6 @@ module.exports = {
       options: {
         name: 'content',
         path: `${__dirname}/src/content/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'til',
-        path: `${__dirname}/src/til/`,
       },
     },
     {

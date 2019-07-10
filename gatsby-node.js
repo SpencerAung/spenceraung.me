@@ -19,26 +19,34 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then((result) => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        const { path: frontmatterPath } = node.frontmatter || {};
-        const url =
-          frontmatterPath === '/blog'
-            ? `/blog/${node.fields.slug}`
-            : frontmatterPath;
+    `)
+      .then((result) => {
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+          const { path: frontmatterPath } = node.frontmatter || {};
+          const { field } = node;
 
-        if (url) {
-          createPage({
-            path: url,
-            component: path.resolve(`./src/templates/BlogPost.jsx`),
-            context: {
-              slug: node.fields.slug,
-            },
-          });
-        }
+          if (!field) return;
+
+          const url =
+            frontmatterPath === '/blog'
+              ? `/blog/${node.fields.slug}`
+              : frontmatterPath;
+
+          if (url) {
+            createPage({
+              path: url,
+              component: path.resolve(`./src/templates/BlogPost.jsx`),
+              context: {
+                slug: node.fields.slug,
+              },
+            });
+          }
+        });
+        resolve();
+      })
+      .catch((e) => {
+        console.log(e.message);
       });
-      resolve();
-    });
   });
 };
 

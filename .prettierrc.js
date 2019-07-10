@@ -4,5 +4,5 @@ module.exports = {
   semi: true,
   singleQuote: true,
   arrowParens: 'always',
-  parser: 'babylon',
+  parser: 'babel',
 };
