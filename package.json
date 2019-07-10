@@ -2,7 +2,7 @@
   "name": "spenceraung.me",
   "description": "Spencer's Blog",
   "engines": {
-    "node": ">=9.10.0"
+    "node": ">=10.15.0"
   },
   "version": "1.0.0",
   "dependencies": {
@@ -37,7 +37,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "gatsby clean",
-    "build": "npm run clean && npm install && gatsby build",
+    "build": "gatsby build",
     "dev": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
