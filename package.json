@@ -38,7 +38,7 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "reinstall": "npm run clean && npm install",
-    "build": "gatsby build",
+    "build": "npm run reinstall && gatsby build",
     "dev": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
