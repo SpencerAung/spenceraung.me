@@ -33,10 +33,6 @@ export const pageQuery = graphql`
             date(formatString: "MMM DD, YYYY")
             path
             title
-            cover {
-              name
-              publicURL
-            }
           }
           timeToRead
           fields {
