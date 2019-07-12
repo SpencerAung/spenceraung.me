@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
+import Menu from './Menu';
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -13,7 +14,8 @@ const PageWrapper = styled.div`
   min-height: 100vh;
   height: 100%;
   padding: 0;
-  background-color: ${(props) => props.theme.lightBlue};
+  /* background-color: ${(props) => props.theme.lightYellow}; */
+  background-color: #fff;
 `;
 
 const ContentWrapper = styled.section`
@@ -21,7 +23,8 @@ const ContentWrapper = styled.section`
   max-width: 700px;
   min-height: 800px;
   padding: 5rem;
-  background-color: ${(props) => props.theme.lightBlue};
+  /* background-color: ${(props) => props.theme.lightYellow}; */
+  background-color: #fff;
 `;
 
 const Layout = ({ children }) => (
@@ -50,6 +53,7 @@ const Layout = ({ children }) => (
           <Fragment>
             <GlobalStyle />
             <PageWrapper>
+              <Menu />
               <ContentWrapper>
                 <div>{children}</div>
               </ContentWrapper>

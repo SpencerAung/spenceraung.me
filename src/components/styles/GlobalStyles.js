@@ -16,10 +16,14 @@ const GlobalStyle = createGlobalStyle`
     line-height: 2;
   }
   a {
-    color: ${theme.red};
+    color: ${theme.darkBlue};
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 2.2rem;
 
     &:hover {
-      color: ${theme.red};
+      color: ${theme.darkBlue};
+      text-decoration: underline;
     }
   }
   h1 {
@@ -39,14 +43,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 3rem 0;
   }
   h1, h2, h3, h4, h5, h6 {
-    color: ${theme.blue};
+    color: ${theme.darkerBlue};
   }
   p, div, li {
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1.3;
   }
-  code {
-    font-size: 1.2rem;
+  p {
+    margin-bottom: 3rem;
+  }
+  code,
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 1.3rem;
   }
   strong {
     font-weight: 700;

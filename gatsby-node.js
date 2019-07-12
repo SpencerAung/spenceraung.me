@@ -14,6 +14,8 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 path
+                date
+                title
               }
             }
           }
@@ -23,13 +25,13 @@ exports.createPages = ({ graphql, actions }) => {
       .then((result) => {
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           const { path: frontmatterPath } = node.frontmatter || {};
-          const { field } = node;
+          const { fields } = node;
 
-          if (!field) return;
+          if (!fields) return;
 
           const url =
             frontmatterPath === '/blog'
-              ? `/blog/${node.fields.slug}`
+              ? `/blog${node.fields.slug}`
               : frontmatterPath;
 
           if (url) {
@@ -60,7 +62,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       createNodeField({
         node,
         name: `slug`,
-        value: slug,
+        value: `${date}-${slug}`,
       });
     }
   }

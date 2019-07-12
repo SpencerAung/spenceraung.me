@@ -15,7 +15,7 @@ const StyledPost = styled.article`
     font-size: 2rem;
   }
   pre {
-    margin-bottom: 1.38rem;
+    margin-bottom: 3rem;
   }
 `;
 

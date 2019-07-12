@@ -16,9 +16,8 @@ const IndexPage = () => (
         target="_blank"
         rel="noreferrer noopener"
       >
-        Korbit
-      </a>{' '}
-      since 2018.
+        Korbit.
+      </a>
     </p>
     <p>
       I work from home and enjoy life with{' '}
@@ -39,6 +38,15 @@ const IndexPage = () => (
       <li>Make a product prototype</li>
       <li>Learn Korean</li>
     </ul>
+    <h3>Reach me at</h3>
+    <p>
+      <a href="mailto:aung.spencer@gmail.com">
+        <span role="img" aria-label="email icon">
+          📧
+        </span>{' '}
+        aung.spencer@gmail.com
+      </a>
+    </p>
   </Layout>
 );
 

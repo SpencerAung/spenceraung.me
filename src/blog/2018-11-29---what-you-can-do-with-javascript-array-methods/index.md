@@ -1,14 +1,15 @@
 ---
 path: "/blog"
 date: "2018-11-29"
-title: "Why I prefer Array methods over for loop"
+title: "What you can do with JavaScript Array methods"
 ---
-Even though, for loop is faster, I personally prefer array methods. The ones I mostly end up using are map, filter and reduce.
+Even though, code implemented in for-loop may run faster, I prefer array methods and use them all the time.
+
+### Reasons
 
 I have a few good reasons to use them.
 
-1. The code is cleaner so it is much easier to understand.
-2. We can reuse the callback function
+1. Unlike a loop, the code is cleaner without the index variables and expressions(initialization, condition and final).
 3. Less side effects because it returns a new array. Original array is not modified. Except for [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach), it performs the callback function directly on each item of the array. 
 
 Let's see what we can do with array methods!
@@ -85,33 +86,3 @@ const charMap = cleanStr.split('').reduce((acc, char) => {
 This time I am using ternary operator instead of if-else condition statement. Both of them serve the same thing. 
 
 One obvious thing here is that with `reduce`, we don't need to care about indexes at all.
-
-### Generating data from previous records
-
-Assume that you have a set of price data that have a direction property. The direction of current price is calculated based on previous price. If the current price is greater, the direction is `UP`. If lower, direction is `DOWN`. If the price is the same, we will carry over the previous price's direction.
-
-We will make some sample records.
-
-```
-const recentPrices = [
-  { price: 100, direction: 'UP', order: 4 },
-  { price: 90, direction: 'UP', order: 3 },
-  { price: 80, direction: 'DOWN', order: 2 },
-  { price: 85, direction: 'UP', order: 1 },
-  { price: 85, direction: 'UP', order: 0 },
-];
-
-const newPrices = [
-  { price: 120, direction: null, order: 5 },
-  { price: 100, direction: null, order: 6 },
-  { price: 95, direction: null, order: 7 },
-];
-
-```
-
-Now, we will 
-
-```
-
-
-```

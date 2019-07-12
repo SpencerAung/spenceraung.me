@@ -13,36 +13,27 @@ const StyledMenu = styled.menu`
 const MenuLink = styled(Link)`
   position: relative;
   margin: 0 2rem;
-  color: ${({ theme }) => theme.black};
-  text-decoration: none;
   font-size: 2rem;
   font-weight: 500;
 
   &:hover,
   &.active {
-    color: ${({ theme }) => theme.black};
-    font-weight: 700;
+    font-weight: 600;
   }
 
-  &.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    border-bottom: 2px solid ${({ theme }) => theme.blue};
+  &.active {
+    text-decoration: underline;
   }
 `;
 
 const Menu = () => (
   <StyledMenu>
     <MenuLink to="/" activeClassName="active">
+      Home
+    </MenuLink>
+    <MenuLink to="/blog/" activeClassName="active">
       Blog
     </MenuLink>
-    {/* <MenuLink to="/about" activeClassName="active">
-      About
-    </MenuLink> */}
   </StyledMenu>
 );
 

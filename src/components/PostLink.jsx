@@ -11,7 +11,6 @@ const StyledPostLink = styled.div`
     position: relative;
     display: inline-block;
     margin-bottom: 1.38rem;
-    color: ${({ theme }) => theme.black};
     font-size: 2.5rem;
     font-weight: 700;
     font-family: 'Exo', sans-serif;
@@ -24,7 +23,7 @@ const StyledPostLink = styled.div`
     left: 0;
     width: 100%;
     height: 1px;
-    border-bottom: 2px solid ${({ theme }) => theme.blue};
+    /* border-bottom: 2px solid ${({ theme }) => theme.blue}; */
   }
 
   p {

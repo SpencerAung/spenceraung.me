@@ -76,7 +76,9 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
-          'gatsby-remark-copy-linked-files',
+          {
+            resolve: `gatsby-remark-images`,
+          },
         ],
       },
     },
@@ -85,11 +87,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'spencer-aung-blog',
+        short_name: 'spencer',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
         display: 'minimal-ui',
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
