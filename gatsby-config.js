@@ -5,6 +5,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-eslint',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-143775629-1',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: `src/utils/typography.js`,
