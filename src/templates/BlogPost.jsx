@@ -27,6 +27,10 @@ const PostNav = styled.article`
   a {
     display: block;
     max-width: 200px;
+
+    &:last-child {
+      text-align: right;
+    }
   }
 `;
 
