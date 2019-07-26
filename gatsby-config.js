@@ -8,7 +8,6 @@ module.exports = {
     twitterUsername: '@SpencerAung'
   },
   plugins: [
-    'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
