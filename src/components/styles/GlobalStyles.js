@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { theme } from './theme';
+import { createGlobalStyle } from 'styled-components'
+import { theme } from './theme'
 // eslint-disable-next-line
 const GlobalStyle = createGlobalStyle`
   html {
@@ -66,6 +66,6 @@ const GlobalStyle = createGlobalStyle`
   del {
     color: ${theme.pink};
   }
-`;
+`
 
-export { GlobalStyle, GlobalStyle as default };
+export { GlobalStyle, GlobalStyle as default }

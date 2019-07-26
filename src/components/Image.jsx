@@ -1,6 +1,6 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 // import { string } from 'prop-types';
 
 /*
@@ -31,10 +31,10 @@ const Image = () => (
       <Img fixed={data.placeholderImage.childImageSharp.fixed} />
     )}
   />
-);
+)
 
 // Image.propTypes = {
 //   src: string.isRequired,
 // };
 
-export default Image;
+export default Image

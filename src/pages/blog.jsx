@@ -1,32 +1,32 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { shape } from 'prop-types';
-import PostLink from '../components/PostLink';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import React from 'react'
+import { graphql } from 'gatsby'
+import { shape } from 'prop-types'
+import PostLink from '../components/PostLink'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 const IndexPage = ({
   data: {
-    allMarkdownRemark: { edges },
-  },
+    allMarkdownRemark: { edges }
+  }
 }) => {
   const Posts = edges
     .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
+    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
     <Layout>
       <SEO />
       {Posts}
     </Layout>
-  );
-};
+  )
+}
 
 IndexPage.propTypes = {
-  data: shape({}).isRequired,
-};
+  data: shape({}).isRequired
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const pageQuery = graphql`
   query {
@@ -48,4 +48,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

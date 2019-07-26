@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const StyledMenu = styled.menu`
   display: flex;
@@ -8,7 +8,7 @@ const StyledMenu = styled.menu`
   align-items: center;
   margin: 0;
   padding: 4rem;
-`;
+`
 
 const MenuLink = styled(Link)`
   position: relative;
@@ -24,17 +24,17 @@ const MenuLink = styled(Link)`
   &.active {
     text-decoration: underline;
   }
-`;
+`
 
 const Menu = () => (
   <StyledMenu>
-    <MenuLink to="/" activeClassName="active">
+    <MenuLink to='/' activeClassName='active'>
       Home
     </MenuLink>
-    <MenuLink to="/blog/" activeClassName="active">
+    <MenuLink to='/blog/' activeClassName='active'>
       Blog
     </MenuLink>
   </StyledMenu>
-);
+)
 
-export default Menu;
+export default Menu

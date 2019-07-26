@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import { shape } from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import { Link } from 'gatsby'
+import { shape } from 'prop-types'
+import styled from 'styled-components'
 
 const StyledPostLink = styled.div`
   margin-bottom: 4rem;
@@ -29,10 +29,10 @@ const StyledPostLink = styled.div`
   p {
     font-size: 1.8rem;
   }
-`;
+`
 
 const PostLink = ({ post }) => {
-  const { frontmatter, fields, timeToRead, excerpt } = post;
+  const { frontmatter, fields, timeToRead, excerpt } = post
 
   return (
     <StyledPostLink>
@@ -40,11 +40,11 @@ const PostLink = ({ post }) => {
       <p>{excerpt}</p>
       <p>{`${frontmatter.date}. ${timeToRead} min`}</p>
     </StyledPostLink>
-  );
-};
+  )
+}
 
 PostLink.propTypes = {
-  post: shape({}).isRequired,
-};
+  post: shape({}).isRequired
+}
 
-export default PostLink;
+export default PostLink

@@ -5,49 +5,49 @@ module.exports = {
     description: `Spencer's website.`,
     url: 'https://spenceraung.me',
     image: '/images/site-image.jpg',
-    twitterUsername: '@SpencerAung',
+    twitterUsername: '@SpencerAung'
   },
   plugins: [
     'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-143775629-1',
-      },
+        trackingId: 'UA-143775629-1'
+      }
     },
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
+        pathToConfigModule: `src/utils/typography.js`
+      }
     },
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         // Add any options here
-      },
+      }
     },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'blog',
-        path: `${__dirname}/src/blog/`,
-      },
+        path: `${__dirname}/src/blog/`
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: `${__dirname}/src/content/`,
-      },
+        path: `${__dirname}/src/content/`
+      }
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -84,14 +84,14 @@ module.exports = {
               showLineNumbers: false,
               // If setting this to true, the parser won't handle and highlight inline
               // code used in markdown i.e. single backtick code like `this`.
-              noInlineHighlight: false,
-            },
+              noInlineHighlight: false
+            }
           },
           {
-            resolve: `gatsby-remark-images`,
-          },
-        ],
-      },
+            resolve: `gatsby-remark-images`
+          }
+        ]
+      }
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -104,10 +104,10 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
-      },
-    },
+        icon: 'src/images/favicon.png' // This path is relative to the root of the site.
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality To
     // learn more, visit: https://gatsby.app/offline 'gatsby-plugin-offline',
-  ],
-};
+  ]
+}

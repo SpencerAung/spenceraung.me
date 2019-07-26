@@ -1,22 +1,22 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import React from 'react'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 const IndexPage = () => (
   <Layout>
     <SEO />
     <h1>
       Hello!{' '}
-      <span role="img" aria-label="waving hand">
+      <span role='img' aria-label='waving hand'>
         👋
       </span>
     </h1>
     <p>
       My name is Spencer Aung. I am a JavaScript developer at{' '}
       <a
-        href="https://www.korbit.co.kr"
-        target="_blank"
-        rel="noreferrer noopener"
+        href='https://www.korbit.co.kr'
+        target='_blank'
+        rel='noreferrer noopener'
       >
         Korbit.
       </a>
@@ -24,9 +24,9 @@ const IndexPage = () => (
     <p>
       I work from home and enjoy life with{' '}
       <a
-        href="https://www.instagram.com/mr__garu/"
-        target="_blank"
-        rel="noreferrer noopener"
+        href='https://www.instagram.com/mr__garu/'
+        target='_blank'
+        rel='noreferrer noopener'
       >
         Mr. Garu
       </a>
@@ -42,14 +42,14 @@ const IndexPage = () => (
     </ul>
     <h3>Reach me at</h3>
     <p>
-      <a href="mailto:aung.spencer@gmail.com">
-        <span role="img" aria-label="email icon">
+      <a href='mailto:aung.spencer@gmail.com'>
+        <span role='img' aria-label='email icon'>
           📧
         </span>{' '}
         aung.spencer@gmail.com
       </a>
     </p>
   </Layout>
-);
+)
 
-export default IndexPage;
+export default IndexPage

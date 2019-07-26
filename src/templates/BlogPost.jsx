@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { shape } from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import { graphql } from 'gatsby'
+import { shape } from 'prop-types'
+import styled from 'styled-components'
 
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 const StyledPost = styled.article`
   width: 100%;
@@ -18,10 +18,10 @@ const StyledPost = styled.article`
   pre {
     margin-bottom: 3rem;
   }
-`;
+`
 
 const BlogPost = ({ data }) => {
-  const post = data.markdownRemark;
+  const post = data.markdownRemark
   return (
     <Layout>
       <SEO />
@@ -31,14 +31,14 @@ const BlogPost = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </StyledPost>
     </Layout>
-  );
-};
+  )
+}
 
 BlogPost.propTypes = {
-  data: shape({}).isRequired,
-};
+  data: shape({}).isRequired
+}
 
-export default BlogPost;
+export default BlogPost
 
 export const query = graphql`
   query($slug: String!) {
@@ -49,4 +49,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

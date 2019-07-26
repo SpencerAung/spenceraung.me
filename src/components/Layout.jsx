@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
-import styled, { ThemeProvider } from 'styled-components';
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
+import styled, { ThemeProvider } from 'styled-components'
 
-import { GlobalStyle } from './styles/GlobalStyles';
-import { theme } from './styles/theme';
-import Menu from './Menu';
+import { GlobalStyle } from './styles/GlobalStyles'
+import { theme } from './styles/theme'
+import Menu from './Menu'
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -16,7 +16,7 @@ const PageWrapper = styled.div`
   padding: 0;
   /* background-color: ${(props) => props.theme.lightYellow}; */
   background-color: #fff;
-`;
+`
 
 const ContentWrapper = styled.section`
   margin: 0 auto;
@@ -25,7 +25,7 @@ const ContentWrapper = styled.section`
   padding: 5rem;
   /* background-color: ${(props) => props.theme.lightYellow}; */
   background-color: #fff;
-`;
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -44,10 +44,10 @@ const Layout = ({ children }) => (
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'keywords', content: 'sample, something' }
           ]}
         >
-          <html lang="en" />
+          <html lang='en' />
         </Helmet>
         <ThemeProvider theme={theme}>
           <Fragment>
@@ -63,10 +63,10 @@ const Layout = ({ children }) => (
       </>
     )}
   />
-);
+)
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+  children: PropTypes.node.isRequired
+}
 
-export default Layout;
+export default Layout
