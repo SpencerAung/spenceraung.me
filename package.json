@@ -43,7 +43,7 @@
     "dev": "gatsby develop",
     "start": "npm run develop",
     "format": "standard --fix",
-    "format:md": "standard --plugin markdown",
+    "format:md": "standard --fix --plugin markdown",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

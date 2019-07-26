@@ -12,24 +12,33 @@ To get the emoji, I go to [Emojipedia](https://emojipedia.org) and find the one 
 
 ### Setting up favicon
 
-Since I am using [Gatsby](https://www.gatsbyjs.org) to run my site, it is very easy to set up favicon. I just need to install a plugin called [gatsby-plugin-manifest](https://www.npmjs.com/package/gatsby-plugin-manifest) and configure like below.
+Since I am using [Gatsby](https://www.gatsbyjs.org) to run my site, it is very easy to set up favicon. I just need to install a plugin called [gatsby-plugin-manifest](https://www.npmjs.com/package/gatsby-plugin-manifest) and configure like below in `gatsby-config.js` file.
 ```shell
 npm install --save gatsby-plugin-manifest
 ```
 
 ```javascript
-{
-  resolve: 'gatsby-plugin-manifest',
-  options: {
-    name: 'spencer-aung-blog',
-    short_name: 'spencer',
-    start_url: '/',
-    background_color: '#ffffff',
-    theme_color: '#ffffff',
-    display: 'minimal-ui',
-    icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+// gatsby-config.js
+module.exports = {
+  siteMetadata: {
+    title: 'Spencer Aung'
   },
-},
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'spencer-aung-blog',
+        short_name: 'spencer',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'minimal-ui',
+        icon: 'src/images/favicon.png' // This path is relative to the root of the site.
+      }
+    }
+    /* other plugins */
+  ]
+}
 ```
 
 ### Build the project again
