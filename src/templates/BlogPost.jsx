@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { shape } from 'prop-types'
 import styled from 'styled-components'
-
+import Link from 'gatsby-link'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
@@ -20,7 +20,13 @@ const StyledPost = styled.article`
   }
 `
 
-const BlogPost = ({ data }) => {
+const PostNav = styled.article`
+  display: flex;
+  justify-content: space-between;
+`
+
+const BlogPost = ({ data, pageContext }) => {
+  console.log('context', pageContext)
   const post = data.markdownRemark
   return (
     <Layout>
@@ -30,6 +36,14 @@ const BlogPost = ({ data }) => {
         {/* eslint-disable-next-line */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </StyledPost>
+      <PostNav>
+        {pageContext.previous ? <Link to={pageContext.previous}>
+          Previous
+        </Link> : <div />}
+        {pageContext.next ? <Link to={pageContext.next}>
+          Next
+        </Link> : <div />}
+      </PostNav>
     </Layout>
   )
 }

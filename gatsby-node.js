@@ -8,6 +8,22 @@ exports.createPages = ({ graphql, actions }) => {
       {
         allMarkdownRemark {
           edges {
+            next {
+              fields {
+                slug
+              }
+              frontmatter {
+                path
+              }
+            }
+            previous {
+              fields {
+                slug
+              }
+              frontmatter {
+                path
+              }
+            }
             node {
               fields {
                 slug
@@ -23,23 +39,31 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `)
       .then((result) => {
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        result.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
           const { path: frontmatterPath } = node.frontmatter || {}
           const { fields } = node
 
           if (!fields) return
 
-          const url =
-            frontmatterPath === '/blog'
-              ? `/blog${node.fields.slug}`
-              : frontmatterPath
+          const getUrl = (frontmatterPath, slug) => frontmatterPath === '/blog' ? `/blog${slug}` : frontmatterPath
+
+          const url = getUrl(frontmatterPath, node.fields.slug)
+          // frontmatterPath === '/blog'
+          //   ? `/blog${node.fields.slug}`
+          //   : frontmatterPath
+
+          const nextSlug = next && next.fields && next.frontmatter ? getUrl(next.frontmatter.path, next.fields.slug) : null
+
+          const previousSlug = previous && previous.fields && previous.frontmatter ? getUrl(previous.frontmatter.path, previous.fields.slug) : null
 
           if (url) {
             createPage({
               path: url,
               component: path.resolve(`./src/templates/BlogPost.jsx`),
               context: {
-                slug: node.fields.slug
+                slug: node.fields.slug,
+                next: nextSlug,
+                previous: previousSlug
               }
             })
           }
