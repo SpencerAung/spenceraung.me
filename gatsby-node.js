@@ -75,6 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
                 component: path.resolve(`./src/templates/BlogPost.jsx`),
                 context: {
                   slug: node.fields.slug,
+                  url: url,
                   next: {
                     link: nextSlug,
                     title: nextTitle

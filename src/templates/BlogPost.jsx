@@ -38,7 +38,7 @@ const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} pathname={pageContext.slug} article />
+      <SEO title={post.frontmatter.title} pathname={pageContext.url} article />
       <StyledPost>
         <h1>{post.frontmatter.title}</h1>
         {/* eslint-disable-next-line */}
