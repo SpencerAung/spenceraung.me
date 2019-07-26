@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { shape } from 'prop-types';
-import styled from 'styled-components';
-import Link from 'gatsby-link';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import React from 'react'
+import { graphql } from 'gatsby'
+import { shape } from 'prop-types'
+import styled from 'styled-components'
+import Link from 'gatsby-link'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 const StyledPost = styled.article`
   width: 100%;
@@ -18,7 +18,7 @@ const StyledPost = styled.article`
   pre {
     margin-bottom: 3rem;
   }
-`;
+`
 
 const PostNav = styled.article`
   display: flex;
@@ -32,11 +32,11 @@ const PostNav = styled.article`
       text-align: right;
     }
   }
-`;
+`
 
 const BlogPost = ({ data, pageContext }) => {
-  console.log('context', pageContext);
-  const post = data.markdownRemark;
+  console.log('context', pageContext)
+  const post = data.markdownRemark
   return (
     <Layout>
       <SEO />
@@ -48,7 +48,7 @@ const BlogPost = ({ data, pageContext }) => {
       <PostNav>
         {pageContext.previous.link ? (
           <Link to={pageContext.previous.link}>
-            <span role="img" aria-label="left arrow">
+            <span role='img' aria-label='left arrow'>
               ⬅️
             </span>{' '}
             Previous
@@ -61,7 +61,7 @@ const BlogPost = ({ data, pageContext }) => {
         {pageContext.next.link ? (
           <Link to={pageContext.next.link}>
             Next{' '}
-            <span role="img" aria-label="right arrow">
+            <span role='img' aria-label='right arrow'>
               ➡️
             </span>
             <br />
@@ -72,14 +72,14 @@ const BlogPost = ({ data, pageContext }) => {
         )}
       </PostNav>
     </Layout>
-  );
-};
+  )
+}
 
 BlogPost.propTypes = {
-  data: shape({}).isRequired,
-};
+  data: shape({}).isRequired
+}
 
-export default BlogPost;
+export default BlogPost
 
 export const query = graphql`
   query($slug: String!) {
@@ -90,4 +90,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

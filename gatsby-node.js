@@ -1,8 +1,8 @@
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -43,31 +43,31 @@ exports.createPages = ({ graphql, actions }) => {
       .then((result) => {
         result.data.allMarkdownRemark.edges.forEach(
           ({ node, next, previous }) => {
-            const { path: frontmatterPath } = node.frontmatter || {};
-            const { fields } = node;
+            const { path: frontmatterPath } = node.frontmatter || {}
+            const { fields } = node
 
-            if (!fields) return;
+            if (!fields) return
 
             const getUrl = (frontmatterPath, slug) =>
-              frontmatterPath === '/blog' ? `/blog${slug}` : frontmatterPath;
+              frontmatterPath === '/blog' ? `/blog${slug}` : frontmatterPath
 
-            const url = getUrl(frontmatterPath, node.fields.slug);
+            const url = getUrl(frontmatterPath, node.fields.slug)
 
             const nextSlug =
               next && next.fields && next.frontmatter
                 ? getUrl(next.frontmatter.path, next.fields.slug)
-                : null;
+                : null
             const nextTitle =
-              next && next.frontmatter ? next.frontmatter.title : '';
+              next && next.frontmatter ? next.frontmatter.title : ''
 
             const previousSlug =
               previous && previous.fields && previous.frontmatter
                 ? getUrl(previous.frontmatter.path, previous.fields.slug)
-                : null;
+                : null
             const previousTitle =
               previous && previous.frontmatter
                 ? previous.frontmatter.title
-                : '';
+                : ''
 
             if (url) {
               createPage({
@@ -77,37 +77,37 @@ exports.createPages = ({ graphql, actions }) => {
                   slug: node.fields.slug,
                   next: {
                     link: nextSlug,
-                    title: nextTitle,
+                    title: nextTitle
                   },
                   previous: {
                     link: previousSlug,
-                    title: previousTitle,
-                  },
-                },
-              });
+                    title: previousTitle
+                  }
+                }
+              })
             }
           }
-        );
-        resolve();
+        )
+        resolve()
       })
       .catch((e) => {
-        console.log(e.message);
-      });
-  });
-};
+        console.log(e.message)
+      })
+  })
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const fileName = createFilePath({ node, getNode, basePath: 'src/blog' });
-    const [date, slug] = fileName.split('---');
+    const fileName = createFilePath({ node, getNode, basePath: 'src/blog' })
+    const [date, slug] = fileName.split('---')
 
     if (slug) {
       createNodeField({
         node,
         name: `slug`,
-        value: `${date}-${slug}`,
-      });
+        value: `${date}-${slug}`
+      })
     }
   }
-};
+}
