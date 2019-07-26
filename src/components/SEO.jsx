@@ -63,6 +63,12 @@ const SEO = ({ title, description, image, pathname, article }) => (
               <meta property="twitter:description" content={seo.description} />
             )}
             {seo.image && <meta property="twitter:image" content={seo.image} />}
+
+            {/* Google site verification code */}
+            <meta
+              name="google-site-verification"
+              content="ynIPLdyMhXN1Hlg7D_We_cQhITMapAvOyR2JdYnyNSo"
+            />
           </Helmet>
         </>
       );
