@@ -1,6 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: 'Spencer Aung | JavaScript Developer',
+    titleTemplate: '%s',
+    description: `Spencer's website.`,
+    url: 'https://spenceraung.me',
+    image: '/images/site-image.jpg',
+    twitterUsername: '@SpencerAung',
   },
   plugins: [
     'gatsby-plugin-eslint',
