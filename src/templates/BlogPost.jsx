@@ -35,11 +35,10 @@ const PostNav = styled.article`
 `
 
 const BlogPost = ({ data, pageContext }) => {
-  console.log('context', pageContext)
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO />
+      <SEO title={post.frontmatter.title} pathname={pageContext.slug} article />
       <StyledPost>
         <h1>{post.frontmatter.title}</h1>
         {/* eslint-disable-next-line */}
