@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { shape } from 'prop-types';
 import PostLink from '../components/PostLink';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const IndexPage = ({
   data: {
@@ -13,7 +14,12 @@ const IndexPage = ({
     .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
 
-  return <Layout>{Posts}</Layout>;
+  return (
+    <Layout>
+      <SEO />
+      {Posts}
+    </Layout>
+  );
 };
 
 IndexPage.propTypes = {

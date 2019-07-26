@@ -4,6 +4,7 @@ import { shape } from 'prop-types';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const StyledPost = styled.article`
   width: 100%;
@@ -23,6 +24,7 @@ const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
+      <SEO />
       <StyledPost>
         <h1>{post.frontmatter.title}</h1>
         {/* eslint-disable-next-line */}
