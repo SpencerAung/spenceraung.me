@@ -3,6 +3,8 @@ module.exports = {
     title: 'Spencer Aung | JavaScript Developer',
     titleTemplate: '%s',
     description: `Spencer's website.`,
+    keywords:
+      'Spencer Aung, JavaScript Developer, Myanmar, South Korea, blog, content',
     url: 'https://spenceraung.me',
     image: '/images/site-image.jpg',
     twitterUsername: '@SpencerAung',

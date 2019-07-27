@@ -14,6 +14,7 @@ const query = graphql`
         defaultImage: image
         twitterUsername
         defaultLang: lang
+        keywords
       }
     }
   }
@@ -31,7 +32,8 @@ const SEO = ({ title, description, image, pathname, article, lang }) => (
           siteUrl,
           defaultImage,
           twitterUsername,
-          defaultLang
+          defaultLang,
+          keywords
         }
       }
     }) => {
@@ -40,7 +42,8 @@ const SEO = ({ title, description, image, pathname, article, lang }) => (
         description: description || defaultDescription,
         image: `${siteUrl}${image || defaultImage}`,
         url: `${siteUrl}${pathname || '/'}`,
-        lang: lang || defaultLang
+        lang: lang || defaultLang,
+        keywords
       }
 
       return (
@@ -49,6 +52,7 @@ const SEO = ({ title, description, image, pathname, article, lang }) => (
             <html lang={seo.lang} />
             <meta name='description' content={seo.description} />
             <meta name='image' content={seo.image} />
+            <meta name='keywords' content={seo.keywords} />
             {seo.url && <meta property='og:url' content={seo.url} />}
             {(article ? true : null) && (
               <meta property='og:true' content='article' />
