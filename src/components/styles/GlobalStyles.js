@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
   }
   p, div, li {
     font-size: 2rem;
-    line-height: 1.3;
+    line-height: 1.48;
   }
   p {
     margin-bottom: 3rem;
