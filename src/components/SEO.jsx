@@ -13,12 +13,13 @@ const query = graphql`
         siteUrl: url
         defaultImage: image
         twitterUsername
+        defaultLang: lang
       }
     }
   }
 `
 
-const SEO = ({ title, description, image, pathname, article }) => (
+const SEO = ({ title, description, image, pathname, article, lang }) => (
   <StaticQuery
     query={query}
     render={({
@@ -29,7 +30,8 @@ const SEO = ({ title, description, image, pathname, article }) => (
           defaultDescription,
           siteUrl,
           defaultImage,
-          twitterUsername
+          twitterUsername,
+          defaultLang
         }
       }
     }) => {
@@ -37,13 +39,14 @@ const SEO = ({ title, description, image, pathname, article }) => (
         title: title || defaultTitle,
         description: description || defaultDescription,
         image: `${siteUrl}${image || defaultImage}`,
-        url: `${siteUrl}${pathname || '/'}`
+        url: `${siteUrl}${pathname || '/'}`,
+        lang: lang || defaultLang
       }
 
       return (
         <>
           <Helmet title={seo.title} titleTemplate={titleTemplate}>
-            <html lang='en' />
+            <html lang={seo.lang} />
             <meta name='description' content={seo.description} />
             <meta name='image' content={seo.image} />
             {seo.url && <meta property='og:url' content={seo.url} />}

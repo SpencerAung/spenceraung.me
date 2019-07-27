@@ -6,7 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             next {
               fields {

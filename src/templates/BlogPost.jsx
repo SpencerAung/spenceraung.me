@@ -38,7 +38,12 @@ const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} pathname={pageContext.url} article />
+      <SEO
+        title={post.frontmatter.title}
+        pathname={pageContext.url}
+        lang={post.frontmatter.lang}
+        article
+      />
       <StyledPost>
         <h1>{post.frontmatter.title}</h1>
         {/* eslint-disable-next-line */}
@@ -86,6 +91,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        lang
       }
     }
   }

@@ -5,7 +5,8 @@ module.exports = {
     description: `Spencer's website.`,
     url: 'https://spenceraung.me',
     image: '/images/site-image.jpg',
-    twitterUsername: '@SpencerAung'
+    twitterUsername: '@SpencerAung',
+    lang: 'en'
   },
   plugins: [
     {

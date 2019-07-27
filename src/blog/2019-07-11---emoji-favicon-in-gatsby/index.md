@@ -2,6 +2,7 @@
 path: "/blog"
 date: "2019-07-11"
 title: "Emoji Favicon in Gatsby"
+lang: "en"
 ---
 
 There are two reasons why I want to use an emoji as a favicon. First, I don't have the skills to make an icon that looks good. Second, I love emojis. I use them on daily basis so why not use them as favicons. I am sure there are others like me.
