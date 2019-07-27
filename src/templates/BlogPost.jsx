@@ -42,6 +42,7 @@ const BlogPost = ({ data, pageContext }) => {
         title={post.frontmatter.title}
         pathname={pageContext.url}
         lang={post.frontmatter.lang}
+        image={post.frontmatter.image && post.frontmatter.image.publicURL}
         article
       />
       <StyledPost>
@@ -92,6 +93,9 @@ export const query = graphql`
       frontmatter {
         title
         lang
+        image {
+          publicURL
+        }
       }
     }
   }
