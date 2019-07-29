@@ -15,17 +15,6 @@ const StyledPost = styled.article`
   pre {
     margin-bottom: 3rem;
   }
-
-  ${(props) =>
-    props.lang === 'mm'
-      ? `
-  p,
-  li {
-    font-size: 1.8rem;
-    line-height: 3.5rem;
-  }
-  `
-      : ''}
 `
 
 const TitleSection = styled.section`
@@ -34,6 +23,22 @@ const TitleSection = styled.section`
   h1 {
     margin-bottom: 2rem;
   }
+`
+const MMTextWrapper = styled.div`
+  ${(props) =>
+    props.lang === 'mm'
+      ? `
+        * {
+          font-family: 'Padauk', sans-serif;
+        }
+
+        p,
+        li {
+          font-size: 1.8rem;
+          line-height: 3.5rem;
+        }
+      `
+      : ''}
 `
 
 const PostNav = styled.article`
@@ -61,14 +66,18 @@ const BlogPost = ({ data, pageContext }) => {
         image={post.frontmatter.image && post.frontmatter.image.publicURL}
         article
       />
-      <StyledPost lang={post.frontmatter.lang}>
+      <StyledPost>
         <TitleSection>
           <p>{post.frontmatter.date}</p>
-          <h1>{post.frontmatter.title}</h1>
+          <MMTextWrapper lang={post.frontmatter.lang}>
+            <h1>{post.frontmatter.title}</h1>
+          </MMTextWrapper>
           <Tags tags={post.frontmatter.tags} />
         </TitleSection>
-        {/* eslint-disable-next-line */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MMTextWrapper lang={post.frontmatter.lang}>
+          {/* eslint-disable-next-line */}
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </MMTextWrapper>
       </StyledPost>
       <PostNav>
         {pageContext.previous.link ? (

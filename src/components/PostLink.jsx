@@ -22,7 +22,13 @@ const TitleLink = styled(Link)`
   margin-bottom: 1.38rem;
   font-size: 2.5rem;
   font-weight: 700;
-  font-family: 'Exo', sans-serif;
+  ${(props) =>
+    props.lang === 'mm'
+      ? `
+    font-family: 'Padauk', sans-serif;
+  `
+      : `font-family: 'Exo', sans-serif;`}
+  
 
   &:hover::after {
     content: '';
@@ -41,7 +47,10 @@ const PostLink = ({ post }) => {
   return (
     <StyledPostLink>
       <p>{`${frontmatter.date}`}</p>
-      <TitleLink to={`${frontmatter.path}/${fields.slug}`}>
+      <TitleLink
+        to={`${frontmatter.path}/${fields.slug}`}
+        lang={frontmatter.lang}
+      >
         {frontmatter.title}
       </TitleLink>
       <Tags tags={frontmatter.tags} />

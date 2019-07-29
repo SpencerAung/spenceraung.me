@@ -39,6 +39,7 @@ export const pageQuery = graphql`
             path
             title
             tags
+            lang
           }
           fields {
             slug

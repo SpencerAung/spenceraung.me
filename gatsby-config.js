@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: '%s',
     description: `Spencer's website.`,
     keywords:
-      'Spencer Aung, JavaScript Developer, Myanmar, South Korea, blog, content',
+      'Spencer Aung, JavaScript Developer, Myanmar, South Korea, blog, content,writing, react, JavaScript',
     url: 'https://spenceraung.me',
     image: '/images/site-image.jpg',
     twitterUsername: '@SpencerAung',
@@ -15,6 +15,14 @@ module.exports = {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-143775629-1'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Padauk:400,700`],
+        display: 'swap',
+        subset: 'myanmar'
       }
     },
     {
