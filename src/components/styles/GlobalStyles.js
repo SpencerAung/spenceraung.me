@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-size: 3rem;
+    line-height: 4rem;
     margin-bottom: 5rem;
   }
   h2 {

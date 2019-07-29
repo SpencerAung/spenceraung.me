@@ -32,10 +32,15 @@ const MMTextWrapper = styled.div`
           font-family: 'Padauk', sans-serif;
         }
 
+        h1 {
+          line-height: 5rem;
+        }
+
+        a,
         p,
         li {
           font-size: 1.8rem;
-          line-height: 3.5rem;
+          line-height: 3rem;
         }
       `
       : ''}
@@ -48,10 +53,6 @@ const PostNav = styled.article`
   a {
     display: block;
     max-width: 200px;
-
-    &:last-child {
-      text-align: right;
-    }
   }
 `
 
@@ -81,26 +82,30 @@ const BlogPost = ({ data, pageContext }) => {
       </StyledPost>
       <PostNav>
         {pageContext.previous.link ? (
-          <Link to={pageContext.previous.link}>
-            <span role='img' aria-label='left arrow'>
-              ⬅️
-            </span>{' '}
-            Previous
-            <br />
-            {pageContext.previous.title}
-          </Link>
+          <MMTextWrapper lang={pageContext.previous.lang}>
+            <Link to={pageContext.previous.link} style={{ textAlign: 'left' }}>
+              <span role='img' aria-label='left arrow'>
+                ⬅️
+              </span>{' '}
+              Previous
+              <br />
+              {pageContext.previous.title}
+            </Link>
+          </MMTextWrapper>
         ) : (
           <div />
         )}
         {pageContext.next.link ? (
-          <Link to={pageContext.next.link}>
-            Next{' '}
-            <span role='img' aria-label='right arrow'>
-              ➡️
-            </span>
-            <br />
-            {pageContext.next.title}
-          </Link>
+          <MMTextWrapper lang={pageContext.next.lang}>
+            <Link to={pageContext.next.link} style={{ textAlign: 'right' }}>
+              Next{' '}
+              <span role='img' aria-label='right arrow'>
+                ➡️
+              </span>
+              <br />
+              {pageContext.next.title}
+            </Link>
+          </MMTextWrapper>
         ) : (
           <div />
         )}

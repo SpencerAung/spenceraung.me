@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 path
                 title
+                lang
               }
             }
             previous {
@@ -26,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 path
                 title
+                lang
               }
             }
             node {
@@ -80,11 +82,16 @@ exports.createPages = ({ graphql, actions }) => {
                 url: url,
                 next: {
                   link: nextSlug,
-                  title: nextTitle
+                  title: nextTitle,
+                  lang: next && next.frontmatter ? next.frontmatter.lang : ''
                 },
                 previous: {
                   link: previousSlug,
-                  title: previousTitle
+                  title: previousTitle,
+                  lang:
+                    previous && previous.frontmatter
+                      ? previous.frontmatter.lang
+                      : ''
                 }
               }
             })
