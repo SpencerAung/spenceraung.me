@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import Tags from '../components/Tags'
 
 const StyledPost = styled.article`
   width: 100%;
@@ -17,6 +18,14 @@ const StyledPost = styled.article`
   }
   pre {
     margin-bottom: 3rem;
+  }
+`
+
+const TitleSection = styled.section`
+  margin-bottom: 5rem;
+
+  h1 {
+    margin-bottom: 2rem;
   }
 `
 
@@ -46,7 +55,11 @@ const BlogPost = ({ data, pageContext }) => {
         article
       />
       <StyledPost>
-        <h1>{post.frontmatter.title}</h1>
+        <TitleSection>
+          <p>{post.frontmatter.date}</p>
+          <h1>{post.frontmatter.title}</h1>
+          <Tags tags={post.frontmatter.tags} />
+        </TitleSection>
         {/* eslint-disable-next-line */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </StyledPost>
@@ -90,12 +103,15 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      timeToRead
       frontmatter {
+        date(formatString: "MMM DD, YYYY")
         title
         lang
         image {
           publicURL
         }
+        tags
       }
     }
   }
