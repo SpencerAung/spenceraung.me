@@ -24,6 +24,8 @@
     "gatsby-transformer-sharp": "^2.2.1",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
+    "ramda": "^0.26.1",
+    "ramda-extension": "^0.8.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",

@@ -1,5 +1,7 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const R = require('ramda')
+const R_ = require('ramda-extension')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -34,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
                 path
                 date
                 title
+                tags
               }
             }
           }
@@ -41,54 +44,71 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `)
       .then((result) => {
-        result.data.allMarkdownRemark.edges.forEach(
-          ({ node, next, previous }) => {
-            const { path: frontmatterPath } = node.frontmatter || {}
-            const { fields } = node
+        const posts = result.data.allMarkdownRemark.edges
 
-            if (!fields) return
+        posts.forEach(({ node, next, previous }) => {
+          const { path: frontmatterPath } = node.frontmatter || {}
+          const { fields } = node
 
-            const getUrl = (frontmatterPath, slug) =>
-              frontmatterPath === '/blog' ? `/blog${slug}` : frontmatterPath
+          if (!fields) return
 
-            const url = getUrl(frontmatterPath, node.fields.slug)
+          const getUrl = (frontmatterPath, slug) =>
+            frontmatterPath === '/blog' ? `/blog${slug}` : frontmatterPath
 
-            const nextSlug =
-              next && next.fields && next.frontmatter
-                ? getUrl(next.frontmatter.path, next.fields.slug)
-                : null
-            const nextTitle =
-              next && next.frontmatter ? next.frontmatter.title : ''
+          const url = getUrl(frontmatterPath, node.fields.slug)
 
-            const previousSlug =
-              previous && previous.fields && previous.frontmatter
-                ? getUrl(previous.frontmatter.path, previous.fields.slug)
-                : null
-            const previousTitle =
-              previous && previous.frontmatter
-                ? previous.frontmatter.title
-                : ''
+          const nextSlug =
+            next && next.fields && next.frontmatter
+              ? getUrl(next.frontmatter.path, next.fields.slug)
+              : null
+          const nextTitle =
+            next && next.frontmatter ? next.frontmatter.title : ''
 
-            if (url) {
-              createPage({
-                path: url,
-                component: path.resolve(`./src/templates/BlogPost.jsx`),
-                context: {
-                  slug: node.fields.slug,
-                  url: url,
-                  next: {
-                    link: nextSlug,
-                    title: nextTitle
-                  },
-                  previous: {
-                    link: previousSlug,
-                    title: previousTitle
-                  }
+          const previousSlug =
+            previous && previous.fields && previous.frontmatter
+              ? getUrl(previous.frontmatter.path, previous.fields.slug)
+              : null
+          const previousTitle =
+            previous && previous.frontmatter ? previous.frontmatter.title : ''
+
+          if (url) {
+            createPage({
+              path: url,
+              component: path.resolve(`./src/templates/BlogPost.jsx`),
+              context: {
+                slug: node.fields.slug,
+                url: url,
+                next: {
+                  link: nextSlug,
+                  title: nextTitle
+                },
+                previous: {
+                  link: previousSlug,
+                  title: previousTitle
                 }
-              })
-            }
+              }
+            })
           }
-        )
+        })
+
+        let tags = []
+        R.forEach((edge) => {
+          if (R.path(['node', 'frontmatter', 'tags'])(edge)) {
+            tags = tags.concat(edge.node.frontmatter.tags)
+          }
+        })(posts)
+
+        tags = R.uniq(tags)
+        tags.forEach((tag) => {
+          createPage({
+            path: `/tags/${R_.toKebabCase(tag)}/`,
+            component: path.resolve(`./src/templates/Tags.jsx`),
+            context: {
+              tag
+            }
+          })
+        })
+
         resolve()
       })
       .catch((e) => {

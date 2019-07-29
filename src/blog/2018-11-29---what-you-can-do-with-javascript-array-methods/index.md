@@ -3,6 +3,7 @@ path: "/blog"
 date: "2018-11-29"
 title: "What you can do with JavaScript Array methods"
 lang: "en"
+tags: ["JavaScript", "beginner", "array"]
 ---
 Even though, code implemented in for-loop may run faster, I prefer array methods and use them all the time.
 
