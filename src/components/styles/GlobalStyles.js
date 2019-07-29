@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
   }
   :not(pre) > code[class*="language-"] {
     padding: 3px 8px;
+    background-color: ${theme.washedWhite};
   }
   pre {
     border-radius: 10px;
