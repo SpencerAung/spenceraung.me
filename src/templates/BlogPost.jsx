@@ -9,7 +9,7 @@ import Tags from '../components/Tags'
 
 const StyledPost = styled.article`
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto 80px;
 
   p,
