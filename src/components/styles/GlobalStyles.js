@@ -57,6 +57,12 @@ const GlobalStyle = createGlobalStyle`
   pre[class*="language-"] {
     font-size: 1.3rem;
   }
+  :not(pre) > code[class*="language-"] {
+    padding: 3px 8px;
+  }
+  pre {
+    border-radius: 10px;
+  }
   strong {
     font-weight: 700;
   }
