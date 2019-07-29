@@ -22,7 +22,7 @@ const StyledPost = styled.article`
   p,
   li {
     font-size: 1.8rem;
-    line-height: 2.8rem;
+    line-height: 3.5rem;
   }
   `
       : ''}
