@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { shape } from 'prop-types'
 import styled from 'styled-components'
+import { toKebabCase } from 'ramda-extension'
 
 const StyledPostLink = styled.div`
   margin-bottom: 4rem;
@@ -28,17 +29,46 @@ const StyledPostLink = styled.div`
 
   p {
     font-size: 1.8rem;
+    margin-bottom: 0;
+    color: ${(props) => props.theme.grey}
+  }
+`
+
+const TagsWrapper = styled.article`
+  a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0 5px;
+    color: ${(props) => props.theme.grey};
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Yrsa', 'georgia', sans-serif;
+    line-height: normal;
+    border: 1px solid ${(props) => props.theme.pink};
+    border-radius: 2px;
+  }
+
+  a:hover {
+    text-decoration: none;
+    background-color: ${(props) => props.theme.pink};
+    color: white;
   }
 `
 
 const PostLink = ({ post }) => {
-  const { frontmatter, fields, timeToRead, excerpt } = post
+  const { frontmatter, fields } = post
 
   return (
     <StyledPostLink>
+      <p>{`${frontmatter.date}`}</p>
       <Link to={`${frontmatter.path}/${fields.slug}`}>{frontmatter.title}</Link>
-      <p>{excerpt}</p>
-      <p>{`${frontmatter.date}. ${timeToRead} min`}</p>
+      <TagsWrapper>
+        {frontmatter.tags.map((tag) => (
+          <Link key={tag} to={`/tags/${toKebabCase(tag)}`}>
+            {tag}
+          </Link>
+        ))}
+      </TagsWrapper>
     </StyledPostLink>
   )
 }
