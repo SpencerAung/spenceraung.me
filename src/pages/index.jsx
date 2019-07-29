@@ -30,8 +30,9 @@ const IndexPage = () => (
       >
         Mr. Garu
       </a>
-      , my favorite cat in the whole world. When I am not making apps, I am
-      either on Netflix or reading a book.
+      , my favorite cat in the whole world.
+      <br />
+      When I am not making apps, I am either on Netflix or reading a book.
     </p>
     <h3>2019 Missions</h3>
     <ul>

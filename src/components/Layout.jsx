@@ -19,7 +19,7 @@ const PageWrapper = styled.div`
 
 const ContentWrapper = styled.section`
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 800px;
   min-height: 800px;
   padding: 3rem;
   /* background-color: ${(props) => props.theme.lightYellow}; */
