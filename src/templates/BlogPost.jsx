@@ -12,13 +12,20 @@ const StyledPost = styled.article`
   max-width: 800px;
   margin: 0 auto 80px;
 
-  p,
-  li {
-    font-size: 2rem;
-  }
   pre {
     margin-bottom: 3rem;
   }
+
+  ${(props) =>
+    props.lang === 'mm'
+      ? `
+  p,
+  li {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+  `
+      : ''}
 `
 
 const TitleSection = styled.section`
@@ -54,7 +61,7 @@ const BlogPost = ({ data, pageContext }) => {
         image={post.frontmatter.image && post.frontmatter.image.publicURL}
         article
       />
-      <StyledPost>
+      <StyledPost lang={post.frontmatter.lang}>
         <TitleSection>
           <p>{post.frontmatter.date}</p>
           <h1>{post.frontmatter.title}</h1>
