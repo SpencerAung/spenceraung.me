@@ -164,7 +164,9 @@ pre > code.highlight {
  * alpha transparency in 8 digits hex notation coming to a browser near you soon:
  * https://drafts.csswg.org/css-color/#hex-notation
  */
-.line-highlight {
+.line-highlight,
+.gatsby-highlight-code-line {
+  display: block;
   background: #e0914233;
   background: linear-gradient(to right, #e0914233 70%, #e0914200);
 }

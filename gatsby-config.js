@@ -99,6 +99,9 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-images`
+          },
+          {
+            resolve: 'gatsby-remark-static-images'
           }
         ]
       }
