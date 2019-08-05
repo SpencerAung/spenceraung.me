@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Spencer Aung | JavaScript Developer',
-    titleTemplate: '%s',
+    titleTemplate: '%s | Spencer Aung',
     description: `Spencer's website.`,
     keywords:
       'Spencer Aung, JavaScript Developer, Myanmar, South Korea, blog, content,writing, react, JavaScript',
