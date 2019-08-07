@@ -1,10 +1,12 @@
 ---
 path: "/blog"
 date: "2019-07-29"
-title: "Creating a timer component in React"
+title: "Creating a time tracker in React"
 lang: "en"
 tags: ["JavaScript", "react", "beginner"]
 ---
+
+## Motivation
 
 How does a timer help you? Well, I don't know about you but it helps me in so many ways like -
 * making sure my meal is not burnt
@@ -17,12 +19,17 @@ Okay, that's enough motivation for me to build my own timer!
 
 ## How it's gonna work
 
+Before we dive into the coding, let's take a moment to analyze the problem. When we talk about timer, it can be a timer which counts up the seconds until it reaches a certain time. Or it can be the opposite and count down the given value to a point. On a closer look, we know that the underlying mechanism is the counting mechanism, whether it decreases or increases the value.
+
+We can use the counting logic in many situations like minute timer.
+
 Let's cut to the chase and create a timer component which we can -
 * customizable start and end value
 * start the timer
 * pause/resume
 * do something when the timer ends
 
+<br />
 
 ## Let's build a counter first!
 ### Define the props
@@ -182,6 +189,9 @@ export default Counter
 Here we have a basic counter, which will start counting as soon as the component is loaded. You can set `start, step, end` props and start using like this.
 
 ```JavaScript{5}
+import React from 'react'
+import Counter from './Counter'
+
 const CountDown = () => (
   <div>
     <h3>Count down to 0</h3>
@@ -190,6 +200,8 @@ const CountDown = () => (
     </h4>
   </div>
 )
+
+export default CountDown
 ```
 ⬇️ ⬇️ ⬇️ ️
 
@@ -221,6 +233,7 @@ class Counter extends Component {
   }
 ```
 
+The next question is where do we implement this pause/resume logic. No worries,  we can use `componentDidUpdate` react life cycle method, which is called every time the component is updated. When the props change, the component will update and `componentDidUpdate` will be called. So we can write our logic there. One thing to note, if you are updating component state inside `componentDidUpdate`, you should only do that inside some condition. Otherwise, your component will keep updating itself forever... 😱
 
 ```JavaScript
 componentDidUpdate(prevProps) {
@@ -233,6 +246,89 @@ componentDidUpdate(prevProps) {
     }
   }
 }
+```
+
+While we are on this, why don't we implement the next requirements.
+Let's update the props first.
+```JavaScript{8-10,16-18}
+class Counter extends Component {
+  static propTypes = {
+    start: PropTypes.number.isRequired,
+    end: PropTypes.number.isRequired,
+    step: PropTypes.number.isRequired,
+    delay: PropTypes.number,
+    isPause: PropTypes.bool,
+    onCounterEnd: PropTypes.func,
+    onCounterPause: PropTypes.func,
+    onCounterResume: PropTypes.func
+  }
+
+  static defaultProps = {
+    delay: 1000,
+    isPause: false,
+    onCounterEnd: () => {},
+    onCounterPause: () => {},
+    onCounterResume: () => {}
+  }
+```
+
+```JavaScript{5,8,17-19}
+componentDidUpdate(prevProps) {
+  if (this.props.isPause !== prevProps.isPause) {
+    if (this.props.isPause) {
+      this.stopCounter()
+      this.props.onCounterPause()
+    } else {
+      this.startCounter()
+      this.props.onCounterResume()
+    }
+  }
+}
+
+stopCounter() {
+  if (this.counterId) {
+    clearInterval(this.counterId)
+
+    if (!this.props.isPause) {
+      this.props.onCounterEnd()
+    }
+  }
+}
+```
+
+
+```JavaScript{20-23}
+import React, { useState} from 'react'
+import Counter from './Counter'
+
+const CountDown = () => {
+  const [isPause, pauseCounter] = useState(false)
+  const [status, updateStatus] = useState('running')
+
+  return (
+    <div>
+      <h3>Count down to 0</h3>
+      <button onClick={() => pauseCounter(!isPause)}>
+        {isPause ? 'play' : 'pause'}
+      </button>
+      <h4>
+        Counting...{' '}
+        <Counter
+          start={10}
+          step={-1}
+          end={0}
+          isPause={isPause}
+          onCounterPause={() => updateStatus('paused')}
+          onCounterResume={() => updateStatus('running')}
+          onCounterEnd={() => updateStatus('stopped')}
+        />
+      </h4>
+      <p>Counter status: {status}</p>
+    </div>
+  )
+}
+
+export default CountDown
 ```
 <br />
 

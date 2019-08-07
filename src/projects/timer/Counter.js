@@ -9,12 +9,15 @@ class Counter extends Component {
     delay: PropTypes.number,
     isPause: PropTypes.bool,
     onCounterEnd: PropTypes.func,
-    onCounterStart: PropTypes.func
+    onCounterPause: PropTypes.func,
+    onCounterResume: PropTypes.func,
+    children: PropTypes.func.isRequired
   }
 
   static defaultProps = {
     onCounterEnd: () => {},
-    onCounterStart: () => {},
+    onCounterPause: () => {},
+    onCounterResume: () => {},
     delay: 1000,
     isPause: false
   }
@@ -25,7 +28,6 @@ class Counter extends Component {
 
   componentDidMount () {
     this.startCounter()
-    this.props.onCounterStart()
   }
 
   componentWillUnmount () {
@@ -37,8 +39,10 @@ class Counter extends Component {
     if (this.props.isPause !== prevProps.isPause) {
       if (this.props.isPause) {
         this.stopCounter()
+        this.props.onCounterPause()
       } else {
         this.startCounter()
+        this.props.onCounterResume()
       }
     }
   }
@@ -61,12 +65,15 @@ class Counter extends Component {
   stopCounter () {
     if (this.counterId) {
       clearInterval(this.counterId)
-      this.props.onCounterEnd()
+
+      if (!this.props.isPause) {
+        this.props.onCounterEnd()
+      }
     }
   }
 
   render () {
-    return <>{this.state.current}</>
+    return <>{this.props.children(this.state.current)}</>
   }
 }
 
