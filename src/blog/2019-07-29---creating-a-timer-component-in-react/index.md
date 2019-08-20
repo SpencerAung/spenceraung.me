@@ -1,33 +1,139 @@
 ---
 path: "/blog"
 date: "2019-07-29"
-title: "Creating a time tracker in React"
+title: "Creating a reusable time tracker in React"
 lang: "en"
 tags: ["JavaScript", "react", "beginner"]
 ---
 
-## Motivation
+When you talk about a timer, it can be one of the three: *count-down timer*, *count-up timer* or a *stop-watch timer*. Is it possible to create one component that satisfies all cases? Yes, we will explore on how we can create one React component and reuse it to make different timers.
 
-How does a timer help you? Well, I don't know about you but it helps me in so many ways like -
-* making sure my meal is not burnt
-* making sure I hung the clean laundry
-* timing my workouts that I *just wish to end* as soon as I started them
-* waking me up from my power naps so I don't miss any work
-* record my social media browsing time
+## Component break down
 
-Okay, that's enough motivation for me to build my own timer!
+Behind the hood, timer uses counting mechanism. So Let's create a Counter component which will be the core of different Timer components. Our Counter component should be able to -
+* accept start, end, step and delay value
+* do something when the counter stops
+* do something when the counter pauses/resumes
+* do something when the counter ends
 
-## How it's gonna work
+## Setting the props
 
-Before we dive into the coding, let's take a moment to analyze the problem. When we talk about timer, it can be a timer which counts up the seconds until it reaches a certain time. Or it can be the opposite and count down the given value to a point. On a closer look, we know that the underlying mechanism is the counting mechanism, whether it decreases or increases the value.
+ I have defined the props like this below. I have added an additional prop `isPause` which will be used as a flag for pause/resume state. We need to keep the current value as ther counter runs. Since we cannot mutate the props, we are copying`start` prop  into `current` state. When the counter starts, we can increase/decrease the `current` value to reflect the changes.
 
-We can use the counting logic in many situations like minute timer.
+```JavaScript
+class Counter extends Component {
+  static propTypes = {
+    start: PropTypes.number.isRequired,
+    end: PropTypes.number.isRequired,
+    step: PropTypes.number.isRequired,
+    delay: PropTypes.number,
+    isPause: PropTypes.bool,
+    onCounterEnd: PropTypes.func,
+    onCounterPause: PropTypes.func,
+    onCounterResume: PropTypes.func,
+  }
 
-Let's cut to the chase and create a timer component which we can -
-* customizable start and end value
-* start the timer
-* pause/resume
-* do something when the timer ends
+  static defaultProps = {
+    onCounterEnd: () => {},
+    onCounterPause: () => {},
+    onCounterResume: () => {},
+    delay: 1000,
+    isPause: false
+  }
+
+  state = {
+    current: this.props.start
+  }
+
+  render () {
+    return <>{this.state.current}</>
+  }
+}
+```
+
+## Adding functionality
+
+Basically, we need two functions to start and stop the counter. In real world application, we might want to do something when the counter ends like showing an alert. So we should support calling a function whenever counter changes its status from pause to resume or when it ends.
+
+```JavaScript
+startCounter () {
+  this.counterId = setInterval(() => {
+    const { current } = this.state
+    const { end, step } = this.props
+
+    if (current !== end) {
+      this.setState({
+        current: current + step
+      })
+    } else {
+      this.stopCounter()
+    }
+  }, this.props.delay)
+}
+
+stopCounter () {
+  if (this.counterId) {
+    clearInterval(this.counterId)
+
+    if (!this.props.isPause) {
+      this.props.onCounterEnd()
+    }
+  }
+}
+```
+
+In `startCounter`, we use `setInterval` method to start the counter. We apply the `step` on every `delay` interval until it reaches the `end`. When it reaches the end, we stop the counter by cleaning up the interval using `clearInterval` method.
+
+## Using component life cycle methods
+
+Previously, we defined the start and stop functions. But component won't do a thing because we haven't setup the actual function calls. For that, we will use React component life cycle methods. 
+
+We want to start the counter as soon as the component is loaded. We can do that by calling `startCounter` in `componentDidMount`.
+
+> `componentDidMount()` is invoked immediately after a component is mounted
+
+
+
+```JavaScript
+componentDidMount () {
+  this.startCounter()
+}
+```
+
+To cleanup the counter, we can use `componentWillUnmount` method.
+
+> `componentWillUnmount()` is invoked immediately before a component is unmounted and destroyed.
+
+```JavaScript
+
+componentWillUnmount () {
+  // cleanup counter
+  this.stopCounter()
+}
+```
+
+Now, the tricky part is handling pause and resume functions. The catch here is we don't need to define new methods for that. We can reuse `startCounter` and `stopCounter` methods.
+
+Remember we defined `isPause` prop? We will make use of this to handle counter pause/resume state. The logic is simple, if `isPause` is `true`, we stop the counter, otherwise, we start the counter. Now the question is how do we know when `isPause` changes.
+
+Don't worry, we can use another React life cycle method. When `isPause` prop changes, it will trigger an update in component. After the update,`componentDidUpdate` life cycle method is invoked. So we can just invoke `startCounter` and `stopCounter` methods inside `componentDidUpdate`.
+
+```JavaScript
+componentDidUpdate (prevProps) {
+  if (this.props.isPause !== prevProps.isPause) {
+    if (this.props.isPause) {
+      this.stopCounter()
+      this.props.onCounterPause()
+    } else {
+      this.startCounter()
+      this.props.onCounterResume()
+    }
+  }
+}
+```
+
+
+
 
 <br />
 
