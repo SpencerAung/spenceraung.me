@@ -74,15 +74,14 @@ startCounter () {
 stopCounter () {
   if (this.counterId) {
     clearInterval(this.counterId)
-
-    if (!this.props.isPause) {
-      this.props.onCounterEnd()
-    }
+    this.props.onCounterEnd()
   }
 }
 ```
 
-In `startCounter`, we use `setInterval` method to start the counter. We apply the `step` on every `delay` interval until it reaches the `end`. When it reaches the end, we stop the counter by cleaning up the interval using `clearInterval` method.
+In `startCounter`, we use `setInterval` method to start the counter. We apply the `step` on every `delay` interval until it reaches the `end`. When it reaches the end, we stop the counter by cleaning up the interval using `clearInterval` method. 
+
+Remember, we want to do something on counter ends. We can do that by calling `onCounterEnd` prop method inside `stopCounter`. 
 
 ## Using component life cycle methods
 
@@ -112,11 +111,11 @@ componentWillUnmount () {
 }
 ```
 
-Now, the tricky part is handling pause and resume functions. The catch here is we don't need to define new methods for that. We can reuse `startCounter` and `stopCounter` methods.
+Now, the tricky part is handling pause and resume functions. The catch here is we don't need to define new methods. We can reuse `startCounter` and `stopCounter` methods.
 
 Remember we defined `isPause` prop? We will make use of this to handle counter pause/resume state. The logic is simple, if `isPause` is `true`, we stop the counter, otherwise, we start the counter. Now the question is how do we know when `isPause` changes.
 
-Don't worry, we can use another React life cycle method. When `isPause` prop changes, it will trigger an update in component. After the update,`componentDidUpdate` life cycle method is invoked. So we can just invoke `startCounter` and `stopCounter` methods inside `componentDidUpdate`.
+Don't worry, we can use another React life cycle method. When `isPause` prop changes, it will trigger an update in component. After the update,`componentDidUpdate` life cycle method is invoked. So we can put a call to `startCounter` and `stopCounter` methods inside `componentDidUpdate`. And don't forget to run the `onCounterPause` and `onCounterResume` prop methods.
 
 ```JavaScript
 componentDidUpdate (prevProps) {
@@ -132,7 +131,21 @@ componentDidUpdate (prevProps) {
 }
 ```
 
+Since we are using `stopCounter` to pause the counter. We need to know if counter is really stopped in order to call `onCounterEnd` correctly. Again, we can use `isPause` prop to check if counter is paused or not.
 
+```JavaScript{5-7}
+stopCounter () {
+  if (this.counterId) {
+    clearInterval(this.counterId)
+
+    if (!this.props.isPause) {
+      this.props.onCounterEnd()
+    }
+  }
+}
+```
+
+## Reuse counter by rendering children as a function
 
 
 <br />
