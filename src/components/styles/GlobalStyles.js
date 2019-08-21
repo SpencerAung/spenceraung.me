@@ -50,7 +50,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 2rem;
     line-height: 1.35;
   }
-  p {
+  p,
+  blockquote {
     margin-bottom: 3rem;
   }
   code,
