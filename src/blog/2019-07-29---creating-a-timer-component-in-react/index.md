@@ -18,7 +18,7 @@ Behind the hood, timer uses counting mechanism. So Let's create a Counter compon
 
 ## Setting the props
 
- I have defined the props like this below. I have added an additional prop `isPause` which will be used as a flag for pause/resume state. We need to keep the current value as ther counter runs. Since we cannot mutate the props, we are copying`start` prop  into `current` state. When the counter starts, we can increase/decrease the `current` value to reflect the changes.
+We can define the props like this.
 
 ```JavaScript
 class Counter extends Component {
@@ -28,15 +28,9 @@ class Counter extends Component {
     step: PropTypes.number.isRequired,
     delay: PropTypes.number,
     isPause: PropTypes.bool,
-    onCounterEnd: PropTypes.func,
-    onCounterPause: PropTypes.func,
-    onCounterResume: PropTypes.func,
   }
 
   static defaultProps = {
-    onCounterEnd: () => {},
-    onCounterPause: () => {},
-    onCounterResume: () => {},
     delay: 1000,
     isPause: false
   }
@@ -50,10 +44,24 @@ class Counter extends Component {
   }
 }
 ```
+I have added an additional prop `isPause` which will be used as a flag for pause/resume state. We need to keep the current value as ther counter runs. Since we cannot mutate the props, we are copying`start` prop  into `current` state. When the counter starts, we will use it record the current counter value.
+
+Btw, if you are wondering what these `<>...</>` are. It is React [Fragment](https://reactjs.org/docs/fragments.html) in short syntax. Make sure you are using React version 16.0 or above to use Fragments.
 
 ## Adding functionality
 
-Basically, we need two functions to start and stop the counter. In real world application, we might want to do something when the counter ends like showing an alert. So we should support calling a function whenever counter changes its status from pause to resume or when it ends.
+In a real world application, we might want to do something when the counter ends, e.g. showing an alert. As an addition to start/stop methods, we should support calling a function whenever counter changes its status from pause to resume or when it ends.
+
+```JavaScript{7-9}
+static propTypes = {
+    // ...
+    onCounterEnd: PropTypes.func,
+    onCounterPause: PropTypes.func,
+    onCounterResume: PropTypes.func
+}
+```
+
+Now let's define the counter start and stop methods.
 
 ```JavaScript
 startCounter () {
@@ -81,7 +89,7 @@ stopCounter () {
 
 In `startCounter`, we use `setInterval` method to start the counter. We apply the `step` on every `delay` interval until it reaches the `end`. When it reaches the end, we stop the counter by cleaning up the interval using `clearInterval` method. 
 
-Remember, we want to do something on counter ends. We can do that by calling `onCounterEnd` prop method inside `stopCounter`. 
+Remember, we want to do something on counter ends. We do that by calling `onCounterEnd` prop method inside `stopCounter`. 
 
 ## Using component life cycle methods
 
