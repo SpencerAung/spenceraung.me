@@ -10,7 +10,7 @@ import Tags from '../components/Tags'
 const StyledPost = styled.article`
   width: 100%;
   max-width: 800px;
-  margin: 0 auto 80px;
+  margin: 0 auto 100px;
 
   pre {
     margin-bottom: 3rem;
@@ -46,7 +46,7 @@ const MMTextWrapper = styled.div`
       : ''}
 `
 
-const PostNav = styled.article`
+const PostNav = styled.div`
   display: flex;
   justify-content: space-between;
 
