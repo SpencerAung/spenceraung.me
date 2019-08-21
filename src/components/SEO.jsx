@@ -45,10 +45,12 @@ const SEO = ({ title, description, image, pathname, article, lang }) => (
         lang: lang || defaultLang,
         keywords
       }
-
       return (
         <>
-          <Helmet title={seo.title} titleTemplate={titleTemplate}>
+          <Helmet
+            title={seo.title}
+            titleTemplate={seo.title !== defaultTitle ? titleTemplate : ''}
+          >
             <html lang={seo.lang} />
             <meta name='description' content={seo.description} />
             <meta name='image' content={seo.image} />

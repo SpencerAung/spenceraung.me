@@ -16,7 +16,7 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <SEO />
+      <SEO title='Blog' />
       {Posts}
     </Layout>
   )
