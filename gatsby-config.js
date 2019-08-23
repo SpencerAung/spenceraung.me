@@ -59,6 +59,7 @@ module.exports = {
         path: `${__dirname}/src/content/`
       }
     },
+    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
