@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
+        allMdx(sort: { order: ASC, fields: [frontmatter___date] }) {
           edges {
             next {
               fields {
@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `)
       .then((result) => {
-        const posts = result.data.allMarkdownRemark.edges
+        const posts = result.data.allMdx.edges
 
         posts.forEach(({ node, next, previous }) => {
           const { path: frontmatterPath } = node.frontmatter || {}
@@ -126,7 +126,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const fileName = createFilePath({ node, getNode, basePath: 'src/blog' })
     const [date, slug] = fileName.split('---')
 

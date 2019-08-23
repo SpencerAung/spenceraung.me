@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import { shape } from 'prop-types'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Tags from '../components/Tags'
@@ -57,7 +59,7 @@ const PostNav = styled.div`
 `
 
 const BlogPost = ({ data, pageContext }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   return (
     <Layout>
       <SEO
@@ -77,7 +79,8 @@ const BlogPost = ({ data, pageContext }) => {
         </TitleSection>
         <MMTextWrapper lang={post.frontmatter.lang}>
           {/* eslint-disable-next-line */}
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          {/* <div dangerouslySetInnerHTML={{ __html: post.body }} /> */}
+          <MDXRenderer>{post.body}</MDXRenderer>
         </MMTextWrapper>
       </StyledPost>
       <PostNav>
@@ -122,8 +125,8 @@ export default BlogPost
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       timeToRead
       frontmatter {
         date(formatString: "MMM DD, YYYY")
