@@ -3,6 +3,7 @@ path: "/blog"
 date: "2019-08-21"
 title: "Creating a reusable timer component in React"
 lang: "en"
+image: "./og-img.jpg"
 tags: ["JavaScript", "react", "beginner"]
 ---
 
