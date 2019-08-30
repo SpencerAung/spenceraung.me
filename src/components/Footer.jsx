@@ -14,9 +14,8 @@ const StyledFooter = styled.footer`
 const Footer = () => (
   <StyledFooter>
     <p>
-      Made with&nbsp;
       <span role='img' aria-label='heart'>
-        ❤️
+        🤖❤️😼
       </span>
     </p>
   </StyledFooter>

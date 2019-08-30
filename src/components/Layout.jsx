@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { theme } from './styles/theme'
 import Menu from './Menu'
+import Footer from './Footer'
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -47,6 +48,7 @@ const Layout = ({ children }) => (
               <ContentWrapper>
                 <div>{children}</div>
               </ContentWrapper>
+              <Footer />
             </PageWrapper>
           </Fragment>
         </ThemeProvider>
