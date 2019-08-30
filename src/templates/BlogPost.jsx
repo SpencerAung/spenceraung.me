@@ -56,6 +56,12 @@ const PostNav = styled.div`
   }
 `
 
+const ThankYouNote = styled.p`
+  text-align: center;
+  color: #888;
+  margin-bottom: 100px;
+`
+
 const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark
   return (
@@ -80,6 +86,9 @@ const BlogPost = ({ data, pageContext }) => {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </MMTextWrapper>
       </StyledPost>
+      <ThankYouNote>
+        Thanks for reading! Stay awesome and keep on hacking! 😍
+      </ThankYouNote>
       <PostNav>
         {pageContext.previous.link ? (
           <MMTextWrapper lang={pageContext.previous.lang}>
