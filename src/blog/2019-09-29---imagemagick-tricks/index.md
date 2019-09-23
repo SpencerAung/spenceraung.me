@@ -1,11 +1,13 @@
 ---
 path: "/blog"
-date: "2019-08-31"
+date: "2019-09-23"
 title: "Imagemagick tricks"
 lang: "en"
 image: "./og-img.jpg"
 tags: ["utility"]
 ---
+
+> WIP ( This page is a work in progress)
 
 A picture is worth a thousand words. At work, I communicate directly with designers and product owner. Sometimes it makes more sense to show a picture than explaining all in and outs of an UI part in words. 
 
