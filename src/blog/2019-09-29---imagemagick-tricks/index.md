@@ -7,26 +7,17 @@ image: "./og-img.jpg"
 tags: ["utility"]
 ---
 
-> WIP ( This page is a work in progress)
+> WIP (This page is a work in progress)
 
-A picture is worth a thousand words. At work, I communicate directly with designers and product owner. Sometimes it makes more sense to show a picture than explaining all in and outs of an UI part in words. 
+For those who don't know what imagemagick is, it's a powerful command line application for image processing and manipulation. It is open-sourced and runs on major operating systems including Android and iOS and others. You can learn more about it [here](https://imagemagick.org).
 
-When I need to show a before & after comparison of an UI element, I would take some screenshots and upload them in slack for feedbacks. However, when the difference is subtle, it is more suited to show a side by side comparison in one picture. In those times, imagemagick is my savior, I could quickly stitch screenshots within seconds in the terminal and pass the resulting image to whoever needed to see.
-
-For those who don't know what imagemagick is, it's a very powerful command line application for image manipulation and processing. It is open-source and runs on major operating systems including Android and iOS and others. You can learn more about it [here](https://imagemagick.org).
-
-Here I will share simple and useful imagemagick tricks that you can use at your work or in projects. 
-
-Let's try out imagemagick tricks with our alien friends from Toy Story.
-
-![alien friends](alien-friends.png)
-> Credit to images from [Disneyclips](https://www.disneyclips.com/images/toystory.html)
+In this blog, I will share simple and useful imagemagick tricks that you can use at your work or in projects. 
 
 ## Installing
 
 You can install `imagemagick` by following the [instructions](https://imagemagick.org/script/download.php) on their official website.
 
-If you are on Mac, you can quickly install with either *MacPorts* for *Homebrew*.
+If you are on Mac, you can quickly install with either *MacPorts* or *Homebrew*.
 
 ```shell
 # installing with MacPorts
@@ -36,6 +27,10 @@ sudo port install imagemagick
 brew install imagemagick
 ```
 
+Let's try out imagemagick tricks with our alien friends from Toy Story.
+
+![alien friends](alien-friends.png)
+> Credit to images from [Disneyclips](https://www.disneyclips.com/images/toystory.html)
 
 ## Converting image format
 
