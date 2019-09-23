@@ -18,6 +18,7 @@ const IndexPage = ({
     <Layout>
       <SEO title='Blog' />
       {Posts}
+      <div />
     </Layout>
   )
 }
