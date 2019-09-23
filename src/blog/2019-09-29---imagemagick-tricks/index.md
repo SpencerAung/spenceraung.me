@@ -1,11 +1,13 @@
 ---
 path: "/blog"
-date: "2019-08-31"
+date: "2019-09-23"
 title: "Imagemagick tricks"
 lang: "en"
 image: "./og-img.jpg"
 tags: ["utility"]
 ---
+
+> WIP (This page is a work in progress)
 
 For those who don't know what imagemagick is, it's a powerful command line application for image processing and manipulation. It is open-sourced and runs on major operating systems including Android and iOS and others. You can learn more about it [here](https://imagemagick.org).
 
