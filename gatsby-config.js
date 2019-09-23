@@ -5,12 +5,13 @@ module.exports = {
     description: `Spencer's website.`,
     keywords:
       'Spencer Aung, JavaScript Developer, Myanmar, South Korea, blog, content,writing, react, JavaScript',
-    url: 'https://spenceraung.me',
+    sitUrl: 'https://spenceraung.me',
     image: '/images/site-image.jpg',
     twitterUsername: '@SpencerAung',
     lang: 'en'
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
