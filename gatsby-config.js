@@ -5,7 +5,7 @@ module.exports = {
     description: `Spencer's website.`,
     keywords:
       'Spencer Aung, JavaScript Developer, Myanmar, South Korea, blog, content,writing, react, JavaScript',
-    sitUrl: 'https://spenceraung.me',
+    siteUrl: 'https://spenceraung.me',
     image: '/images/site-image.jpg',
     twitterUsername: '@SpencerAung',
     lang: 'en'
