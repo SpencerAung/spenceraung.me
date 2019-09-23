@@ -138,7 +138,9 @@ export const query = graphql`
         date(formatString: "MMM DD, YYYY")
         title
         lang
-        image
+        image {
+          publicURL
+        }
         tags
       }
     }
