@@ -1,0 +1,117 @@
+- name: "Korbit Exchange Web"
+  role: "Frontend Developer"
+  startDate: "2018-05-31"
+  endDate: ""
+  company: "Korbit"
+  tech:
+    - JavaScript
+    - React
+    - Redux
+    - Redux saga
+    - Graphql
+    - styled-components
+    - Gatsby
+    - Functional Programming
+    - lodash
+  contribution:
+    - Developed and maintained UI components in React and styled-components
+    - Developed and maintained business logic in Redux store and managed actions using Redux Saga
+    - Connect to backend using Graphql queries
+  platforms:
+    - Web
+  links:
+    - website: "https://www.korbit.co.kr"
+- name: "Korbit Exchange Mobile App"
+  role: "Frontend Developer"
+  startDate: "2018-06-14"
+  endDate: "2018-12-21"
+  company: "Korbit"
+  tech:
+    - JavaScript
+    - React Native
+    - Redux
+    - Redux saga
+    - Graphql
+  contribution:
+    - Developed and maintained Korbit Mobile App features
+  platforms:
+    - iOS
+    - Android
+- name: "MailChimp Survey Campaign Web App"
+  role: "Full Stack Developer"
+  startDate: "2018-04-09"
+  endDate: "2018-05-11"
+  company: "Innoboost"
+  tech:
+    - JavaScript
+    - React
+    - Redux
+    - Node.js
+    - Express
+    - MailChimp API
+    - Twilio SMS API
+    - MongoDB
+  contribution:
+    - Developed API for managing survey and connect MailChimp API and Twilio SMS API
+    - Developed admin dashboard for managing surveys, accounts, and user segments
+    - Developed web app for audience to take part in survey and see the results
+  description: The service allows user to manage surveys with MailChimp campaigns. The audience can opt-in or out of the campaign by sending a keyword in SMS to specified phone number
+  platforms:
+    - Web
+- name: Drug Dosage Data Visualization App
+  role: Full Stack Developer
+  startDate: "2017-12-13"
+  endDate: "2018-03-20"
+  company: Innoboost
+  tech:
+    - JavaScript
+    - React Native
+    - Redux
+    - Victory.js
+  contribution:
+    - Developed data visualization chart using Victory.js
+    - Control chart state using Redux store
+    - Developed custom slide component in React Native
+  descriptions:
+    "Data visualization App allows the user to visualize and compare the effect of the drug usage over 8 days periods. As the user adjusts the inputs: dosage amount, the interval of dose taken, above and below threshold data, the chart redraws itself to reflect the changes in real time."
+  platforms:
+    - iPad
+- name: Custom CLM Platform
+  role: Full Stack Developer
+  startDate: "2017-07-14"
+  endDate: "2017-11-23"
+  company: Innoboost
+  tech:
+    - JavaScript
+    - React
+    - Redux
+    - Node.js
+    - Express
+    - Webpack
+    - MongoDB
+    - AWS
+  contribution:
+    - Developed nation-wide CLM progress tracking platform API using Node.js and Express
+    - Developed regional progress calculation using MongoDB aggregation framework
+    - Developed front-end for both end-user and admins using React
+  description:
+    Custom CLM Campaign Platform allows sales reps to engage and track the progress of the CLM contents shared with the doctors. From a separate admin dashboard, marketers are able to track the nationwide progress of the campaign. Marketers can also broadcast message to sales reps, publish/hide CLM presentation, manage accounts. They can also generate the excel file containing all accounts and their progress. Additionally, they can also bulk upload the accounts in an excel file.
+  platforms:
+    - Web
+- name: Presentation Navigator App
+  role: Full Stack Developer
+  startDate: "2017-10-16"
+  endDate: "2017-10-31"
+  company: Innoboost
+  tech:
+    - JavaScript
+    - React Native
+    - socket.io
+    - Node.js
+  contribution:
+    - Developed realtime API using socket.io for managing presentation state
+    - Developed front-end for presentation UI
+    - Developed iPad app which sends navigation requests to API to change presentation slides
+  platforms:
+    - Web
+    - iPad
