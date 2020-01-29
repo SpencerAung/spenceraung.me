@@ -1,7 +1,7 @@
 - name: "Korbit Exchange Web"
   role: "Frontend Developer"
   startDate: "2018-05-31"
-  endDate: ""
+  endDate: "2019-03-06"
   company: "Korbit"
   tech:
     - JavaScript
@@ -115,3 +115,108 @@
   platforms:
     - Web
     - iPad
+- name: Ulthera Website
+  role: Full Stack Developer
+  startDate: "2017-07-17"
+  endDate: "2018-05-07"
+  company: Innoboost
+  tech:
+    - JavaScript
+    - React
+    - Redux
+    - Node.js
+    - Express
+    - Webpack
+    - MongoDB
+    - AWS
+    - EC2
+  contributions:
+    - Developed API for verifying product code, noticeboard management
+    - Developed front-end client including multi-step forms for product code verification
+  links:
+    - website: "https://www.ulthera.co.kr"
+  platforms:
+    - Web
+- name: Neobelle - Event Website
+  role: Full Stack Developer
+  startDate: "2017-04-10"
+  endDate: "2017-04-20"
+  isArchived: true
+  company: Innoboost
+  tech:
+    - JavaScript
+    - Node.js
+    - Express
+    - MongoDB
+    - React
+    - Redux
+  contributions:
+    - Developed API that allows user to participate in event by uploading picture and text
+    - Developed website for audience to participate in event
+    - Developed admin dashboard to manage the event
+  platforms:
+    - Web
+- name: Various Veeva CLM Multichannel Presentations
+  role: Frontend Developer
+  startDate: "2016-06-01"
+  endDate: "2018-05-31"
+  company: Innoboost
+  tech:
+    - HTML/CSS
+    - CSS Animations
+    - JavaScript
+    - jQuery
+    - Salesforce
+    - Veeva Platform
+  contributions:
+    - Developed 30+ HTML Veeva CLM Multichannel Presentations for pharmaceutical companies such as GSK, BMS, Pfizer
+    - Obtained Veeva CLM Certification on behalf of Innoboost Co., Ltd
+    - Obtained Veeva Approved Email Certification on behalf of Innoboost Co., Ltd
+  platforms:
+    - Veeva CLM Platform
+    - Salesforce CLM
+- name: UDP Client for X-Plane Flight Simulation
+  role: Research Asistant
+  startDate: "2015-03-01"
+  endDate: "2015-04-31"
+  isArchived: true
+  lab: AADL
+  tech:
+    - C#
+    - X-Plane
+  contributions:
+    - Developed Windows console application that input flight data from CSV file into X-Plane using UDP connection to simulate real flight
+  platforms:
+    - Windows
+- name: Light Aircraft Preliminary Sizing Web Service API and Android App
+  role: Graduate Student
+  startDate: "2014-10-01"
+  endDate: "2014-12-31"
+  isArchived: true
+  lab: AADL
+  tech:
+    - Java
+    - Phonegap
+    - Catia
+    - MySQL
+  contributions:
+    - Developed API for calculating preliminary sizing and configuration of a light aircraft
+    - Developed a thin mobile client that consumes the API using Phonegap framework
+  platforms:
+    - Web
+    - Android
+- name: Integrated Fluid-thermal-analysis Tool for Air Intake Structure of High Speed Vehicle
+  role: Graduate Student
+  startDate: "2013"
+  endDate: "2014"
+  isArchived: true
+  lab: AADL
+  tech:
+    - Java
+    - Matlab
+    - MSC Nastran
+    - SQLite
+  contributions:
+    - Developed Windows GUI application that intergrates legacy analysis and calculation programs
+  platforms:
+    - Windows
