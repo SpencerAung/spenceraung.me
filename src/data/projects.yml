@@ -13,7 +13,7 @@
     - Gatsby
     - Functional Programming
     - lodash
-  contribution:
+  contributions:
     - Developed and maintained UI components in React and styled-components
     - Developed and maintained business logic in Redux store and managed actions using Redux Saga
     - Connect to backend using Graphql queries
@@ -32,7 +32,7 @@
     - Redux
     - Redux saga
     - Graphql
-  contribution:
+  contributions:
     - Developed and maintained Korbit Mobile App features
   platforms:
     - iOS
@@ -51,7 +51,7 @@
     - MailChimp API
     - Twilio SMS API
     - MongoDB
-  contribution:
+  contributions:
     - Developed API for managing survey and connect MailChimp API and Twilio SMS API
     - Developed admin dashboard for managing surveys, accounts, and user segments
     - Developed web app for audience to take part in survey and see the results
@@ -68,7 +68,7 @@
     - React Native
     - Redux
     - Victory.js
-  contribution:
+  contributions:
     - Developed data visualization chart using Victory.js
     - Control chart state using Redux store
     - Developed custom slide component in React Native
@@ -90,7 +90,7 @@
     - Webpack
     - MongoDB
     - AWS
-  contribution:
+  contributions:
     - Developed nation-wide CLM progress tracking platform API using Node.js and Express
     - Developed regional progress calculation using MongoDB aggregation framework
     - Developed front-end for both end-user and admins using React
@@ -108,7 +108,7 @@
     - React Native
     - socket.io
     - Node.js
-  contribution:
+  contributions:
     - Developed realtime API using socket.io for managing presentation state
     - Developed front-end for presentation UI
     - Developed iPad app which sends navigation requests to API to change presentation slides
