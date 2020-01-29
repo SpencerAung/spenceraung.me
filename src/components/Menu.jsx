@@ -31,6 +31,9 @@ const Menu = () => (
     <MenuLink to='/' activeClassName='active'>
       Home
     </MenuLink>
+    <MenuLink to='/projects/' activeClassName='active'>
+      Projects
+    </MenuLink>
     <MenuLink to='/blog/' activeClassName='active'>
       Blog
     </MenuLink>
