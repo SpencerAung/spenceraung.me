@@ -39,6 +39,13 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-yaml',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: './src/data'
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
