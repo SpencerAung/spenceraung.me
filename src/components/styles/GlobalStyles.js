@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.darkBlue};
     text-decoration: none;
     font-weight: 500;
-    font-size: 2.2rem;
 
     &:hover {
       color: ${theme.darkBlue};

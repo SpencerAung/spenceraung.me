@@ -12,7 +12,6 @@ const TagsWrapper = styled.article`
     color: ${(props) => props.theme.grey};
     font-size: 1.8rem;
     font-weight: 400;
-    font-family: 'Yrsa', 'georgia', sans-serif;
     line-height: normal;
     border: 1px solid ${(props) => props.theme.pink};
     border-radius: 2px;
