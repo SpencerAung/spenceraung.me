@@ -12,7 +12,7 @@ const StyledPostLink = styled.div`
   p {
     font-size: 1.8rem;
     margin-bottom: 0;
-    color: ${(props) => props.theme.grey};
+    color: ${(props) => props.theme.colors.paragraph};
   }
 `
 
@@ -21,14 +21,12 @@ const TitleLink = styled(Link)`
   display: inline-block;
   margin-bottom: 1.38rem;
   font-size: 2.5rem;
-  font-weight: 700;
   ${(props) =>
     props.lang === 'mm'
       ? `
     font-family: 'Padauk', sans-serif;
   `
-      : `font-family: 'Exo', sans-serif;`}
-  
+      : ``}
 
   &:hover::after {
     content: '';
