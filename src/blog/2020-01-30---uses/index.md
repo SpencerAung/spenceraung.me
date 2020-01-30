@@ -6,6 +6,8 @@ lang: "en"
 tags: ["uses", "utility"]
 ---
 
+Inspired by the interesting lists of uses in Wes Bos's [uses.tech](https://uses.tech), I am sharing a list of devices and tools I use.
+
 ## Hardware
 
 * MacBook Pro 13-inch with touch bar
