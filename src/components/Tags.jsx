@@ -9,18 +9,19 @@ const TagsWrapper = styled.article`
     display: inline-block;
     margin: 0 5px;
     padding: 0 5px;
-    color: ${(props) => props.theme.grey};
+    color: ${(props) => props.theme.colors.white};
     font-size: 1.8rem;
     font-weight: 400;
     line-height: normal;
-    border: 1px solid ${(props) => props.theme.pink};
+		background-color: ${(props) => props.theme.colors.pink};
     border-radius: 2px;
   }
 
   a:hover {
     text-decoration: none;
-    background-color: ${(props) => props.theme.pink};
-    color: white;
+		color: ${(props) => props.theme.colors.paragraph};
+		border: 1px solid ${(props) => props.theme.colors.pink};
+		background-color: transparent;
   }
 `
 const Tags = ({ tags }) => (

@@ -12,7 +12,7 @@ const StyledPostLink = styled.div`
   p {
     font-size: 1.8rem;
     margin-bottom: 0;
-    color: ${(props) => props.theme.grey};
+    color: ${(props) => props.theme.colors.paragraph};
   }
 `
 

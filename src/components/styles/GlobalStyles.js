@@ -12,16 +12,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
     line-height: 2;
   }
   a {
-    color: ${theme.darkBlue};
+    color: ${theme.colors.link};
     text-decoration: none;
     font-weight: 500;
 
     &:hover {
-      color: ${theme.darkBlue};
+      color: ${theme.colors.link};
       text-decoration: underline;
     }
   }
@@ -43,11 +42,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 3rem 0;
   }
   h1, h2, h3, h4, h5, h6 {
-    color: ${theme.darkerBlue};
+    color: ${theme.colors.darkBlue};
   }
   p, div, li {
     font-size: 2rem;
     line-height: 1.35;
+		color: ${theme.colors.paragraph};
   }
   p,
   blockquote {
@@ -69,10 +69,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
   }
   em {
-    color: ${theme.red};
+    color: ${theme.colors.red};
   }
   del {
-    color: ${theme.pink};
+    color: ${theme.colors.pink};
   }
 `
 
