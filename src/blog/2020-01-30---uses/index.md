@@ -12,6 +12,7 @@ Inspired by the interesting lists of uses in Wes Bos's [uses.tech](https://uses.
 ## Hardware
 
 * MacBook Pro 13-inch with touch bar
+* BenQ PD2700Q 27 inch Monitor
 * iPad Mini 2 with Apple Pencil for sketching
 * Vortex Race 3 RGB with cherry MX clear switch for super fast typing experience.
 * Kanex foldable bluetooth keyboard for typing on iPad
