@@ -3,6 +3,7 @@ path: "/blog"
 date: "2020-01-30"
 title: "Uses"
 lang: "en"
+image: "./og-img.jpg"
 tags: ["uses", "utility"]
 ---
 
