@@ -21,6 +21,7 @@ const TitleSection = styled.section`
   margin-bottom: 5rem;
 
   h1 {
+    font-size: 4rem;
     margin-bottom: 2rem;
   }
 
