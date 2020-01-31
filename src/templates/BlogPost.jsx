@@ -23,6 +23,11 @@ const TitleSection = styled.section`
   h1 {
     margin-bottom: 2rem;
   }
+
+  p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+  }
 `
 const MMTextWrapper = styled.div`
   ${(props) =>
@@ -75,11 +80,11 @@ const BlogPost = ({ data, pageContext }) => {
       />
       <StyledPost>
         <TitleSection>
-          <p>{post.frontmatter.date}</p>
           <MMTextWrapper lang={post.frontmatter.lang}>
             <h1>{post.frontmatter.title}</h1>
           </MMTextWrapper>
           <Tags tags={post.frontmatter.tags} />
+          <p>{post.frontmatter.date}</p>
         </TitleSection>
         <MMTextWrapper lang={post.frontmatter.lang}>
           {/* eslint-disable-next-line */}
