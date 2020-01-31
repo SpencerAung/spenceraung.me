@@ -10,7 +10,7 @@ const StyledPostLink = styled.div`
   width: 100%;
 
   p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 0;
     color: ${(props) => props.theme.colors.paragraph};
   }
