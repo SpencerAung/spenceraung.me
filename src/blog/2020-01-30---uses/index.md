@@ -17,8 +17,9 @@ Inspired by the interesting lists of uses in Wes Bos's [uses.tech](https://uses.
 
 ## Editors
 
-* [neovim](https://neovim.io/) for coding. I also put my config [here](https://gist.github.com/SpencerAung/ca4fb0f562b792f44319901c68091e83)
+* [neovim](https://neovim.io/) with [tmux](https://github.com/tmux/tmux/wiki) for coding. I also put my config [here](https://gist.github.com/SpencerAung/ca4fb0f562b792f44319901c68091e83)
 * [Visual Studio Code](https://code.visualstudio.com/) aslo for coding/writing Myanmar unicode characters which are not rendered properly in terminal.
+* [Run JS](https://runjs.dev/) for quick testing of scripts
 
 ## Tools
 
@@ -26,3 +27,7 @@ Inspired by the interesting lists of uses in Wes Bos's [uses.tech](https://uses.
 * [Mind Node](https://mindnode.com/) for studying/planning/thinking
 * [draw.io](https://draw.io) for diagrams
 * [Excalidraw](https://excalidraw.com) for quick mockings and diagrams
+* [1Password](https://1password.com/) for password management
+* [pocket](https://getpocket.com/) for bookmarking articles
+* [Day One](https://dayoneapp.com/) for journaling
+
