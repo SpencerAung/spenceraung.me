@@ -33,3 +33,6 @@ Inspired by the interesting lists of uses in Wes Bos's [uses.tech](https://uses.
 * [pocket](https://getpocket.com/) for bookmarking articles
 * [Day One](https://dayoneapp.com/) for journaling
 
+## Font
+* [Victor Mono](https://rubjo.github.io/victor-mono/)
+
