@@ -7,6 +7,7 @@ import { GlobalStyle } from './styles/GlobalStyles'
 import { theme } from './styles/theme'
 import Menu from './Menu'
 import Footer from './Footer'
+import NewProjectCard from './NewProjectCard'
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -21,7 +22,7 @@ const PageWrapper = styled.div`
 const ContentWrapper = styled.section`
   margin: 0 auto;
   max-width: 800px;
-  min-height: 800px;
+  /* min-height: 800px; */
   padding: 3rem;
   /* background-color: ${(props) => props.theme.lightYellow}; */
   background-color: #fff;
@@ -47,6 +48,7 @@ const Layout = ({ children }) => (
               <Menu />
               <ContentWrapper>
                 <div>{children}</div>
+                <NewProjectCard />
               </ContentWrapper>
               <Footer />
             </PageWrapper>
