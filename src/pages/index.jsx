@@ -14,11 +14,11 @@ const IndexPage = () => (
     <p>
       My name is Spencer Aung. I am a JavaScript developer at{' '}
       <a
-        href='https://www.korbit.co.kr'
+        href='https://coupang.com'
         target='_blank'
         rel='noreferrer noopener'
       >
-        Korbit.
+        Coupang.
       </a>
     </p>
     <p>
